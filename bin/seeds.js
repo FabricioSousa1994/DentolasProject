@@ -249,3 +249,17 @@ const bars = [
  
 ];
 
+const seedDB = async bars => {
+    try {
+        const dbConnection = await mongoose.connect('mongodb://localhost/DentolasProject');
+        console.log('Connection made to:', dbConnection.connections[0].name);
+        const allBooks = await Bars.create(bars)
+        console.log('Created the bars')
+    } catch(error) {
+        console.log('An error occurred', error)
+    } finally {
+        await mongoose.connection.close();
+    }
+  }
+
+  seedDB(bars);
