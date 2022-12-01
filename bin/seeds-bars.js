@@ -138,99 +138,152 @@ const bars = [
     opening_hours: '08:00',
     address: 'ER206, Gaula',
     rating: 4.2,
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757244/Dentolas/Cabouco_Bar_x0dffu.png",
-    dentinho: ['Camarão', 'Tremoços'],
-    drinks: ['poncha', 'beer', 'wine', 'others']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859426/No-Photo-Available_xposkb.jpg",
+    dentinho: ['Camarão', 'Tremoços']
     },
     {
     name: 'Cantinho do Abreu',
     opening_hours: '07:00',
     address: 'Caminho do Poço Barral 34, Funchal',
     rating: 4.6,
-    picture_url:"https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757244/Dentolas/Cantinho_do_Abreu_udy0de.png",  
-    dentinho: ['Camarão', 'Tremoços'], 
-    drinks: ['beer', 'wine']
+    picture_url:"https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859756/cantinho_abreu_rphyit.jpg",  
+    dentinho: ['Camarão', 'Tremoços']
     },
     {
     name: 'O Moega',
     opening_hours: '10:00',
     address: 'Caminho Velho da Tendeira, 9125-116 Caniço',
     rating: 4.5, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757242/Dentolas/Bar_O_Moega_swwdex.png",  
-    dentinho: ['Asinhas de frango', 'Tremoços'], 
-    drinks: ['poncha', 'beer', 'wine', 'sangria', 'others']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859940/moega_ganzyg.jpg",  
+    dentinho: ['Asinhas de frango', 'Tremoços']
     },
     {
     name: 'As Patinhas',
     opening_hours: '10:00',
     address: 'Caminho da Cancela, Caniço',
     rating: 4.3, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669758058/Dentolas/As_Patinhas_olcj5a.png",  
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669860069/patinhas_sggm6b.jpg",  
     dentinho: ['Asinhas de frango', 'Patinhas de porco', 'Tremoços'], 
-    drinks: ['poncha', 'beer', 'wine', 'others']
     },
     {
     name: 'Pé de Cabra',
     opening_hours: '06:00',
     address: 'Caminho da Ribeira dos Socorridos 5, 9000-000 Lombada',
     rating: 4.6, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757243/Dentolas/Bar_P%C3%A9_de_Cabra_prmokp.png",  
-    dentinho: ['Amendoim', 'Tremoços'], 
-    drinks: ['poncha', 'beer', 'wine', 'pé de cabra']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669860209/pe_cabra_yle3vx.jpg",  
+    dentinho: ['Amendoim', 'Tremoços']
     },
     {
     name: 'Moinho Maloeira',
     opening_hours: '07:00',
     address: 'Estrada Regional 222, Estrada Fajã da ovelha nº19, 9370-315 Maloeira - Calheta - Madeira',
     rating: 4.5, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757245/Dentolas/Moinho_da_Maloeira_g9acdd.png",  
-    dentinho: ['Dobrada', 'Tremoços'], 
-    drinks: [ 'beer', 'wine']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669860346/moinho_pqusfi.jpg",  
+    dentinho: ['Dobrada', 'Tremoços']
     },
     {
     name: 'Chega de Securas',
     opening_hours: '07:00',
     address: 'Estrada Regional 102, Portugal',
     rating: 4.4, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757244/Dentolas/Chega_de_Securas_xcsiuf.png",  
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859426/No-Photo-Available_xposkb.jpg",  
     dentinho: ['Queijo fresco', 'Asinhas de frango', 'Patinhas de porco'], 
-    drinks: ['poncha', 'beer', 'wine', 'others']
     },
     {
     name: 'Brás Aquele Bar',      
     opening_hours: '10:00',
     address: 'Tv. dos Piornais 9000, 9000-000 Funchal',
     rating: 4.4, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757243/Dentolas/Br%C3%A1s_Aquele_Bar_njtg70.jpg",  
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859426/No-Photo-Available_xposkb.jpg",  
     dentinho: ['Camarão'], 
-    drinks: ['beer', 'wine']
     },
     {
     name: 'Bar 21',         
     opening_hours: '10:00',
     address: 'ER203',
     rating: 4.3, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757237/Dentolas/Bar_21_mr1iuy.jpg",  
-    dentinho: ['Macarrão', 'Tremoços', 'Amendoim'], 
-    drinks: ['beer', 'wine']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669861237/21_mplrjb.jpg",  
+    dentinho: ['Macarrão', 'Tremoços', 'Amendoim']
     },
     {
     name: 'O Girinho',       
     opening_hours: '07:00',
     address: ' n°1, Caminho Mun. dos Caboucos, Camacha',
     rating: 4.4, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757245/Dentolas/O_Girinho_cy20xu.jpg",  
-    dentinho: ['Macarrão', 'Tremoços', 'Amendoim'], 
-    drinks: ['poncha', 'beer', 'wine', 'others']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669861371/girinho_xeunls.jpg",  
+    dentinho: ['Macarrão', 'Tremoços', 'Amendoim']
     },
     {
     name: 'Venda do Sócio',       
     opening_hours: '07:00',
     address: 'R. Sidónio Serôdio nº 1, 9125-114 Caniço',
     rating: 4.4, 
-    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757248/Dentolas/Venda_do_S%C3%B3cio_zld5ja.jpg",  
-    dentinho: ['Macarrão', 'Tremoços', 'Amendoim', 'Milho frito com sal'], 
-    drinks: ['poncha', 'beer', 'wine', 'others']
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669861456/socio_qpszsq.jpg",  
+    dentinho: ['Macarrão', 'Tremoços', 'Amendoim', 'Milho frito com sal']
+    },
+    {
+    name: 'As Asinhas',       
+    opening_hours: '10:30',
+    address: 'Estr. da Boa Nova 71A, 9060-289 Funchal',
+    rating: 4.5, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669861711/asinhas_zhstm1.jpg",  
+    dentinho: ['Asinhas de frango']
+    },
+    {
+    name: 'Venda do André',       
+    opening_hours: '09:00',
+    address: 'Estr. João Gonçalves Zarco, Quinta Grande',
+    rating: 4.6, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669862167/andre_wq3hu3.jpg",  
+    dentinho: ['Tremoços', 'Amendoim', 'Milho frito com sal']
+    },
+    {
+    name: 'Poncha da Fátima',       
+    opening_hours: '07:30',
+    address: 'Fonte de santo antonio, ER108 38, Machico',
+    rating: 4.6, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669862435/fatima_moqigl.jpg",  
+    dentinho: ['Tremoços', 'Amendoim', 'Milho frito com sal', 'Torresmos']
+    },
+    {
+    name: 'Adega do Pomar',       
+    opening_hours: '11:00',
+    address: 'R. Maria Ascensão, 9135-060 Camacha',
+    rating: 4.5, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669862832/pomar_gnsv2q.jpg",  
+    dentinho: ['Amendoim']
+    },
+    {
+    name: 'Sete Mares',       
+    opening_hours: '10:00',
+    address: 'Av. Sá Carneiro 3, Funchal',
+    rating: 4.4, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669863189/mares_c0dng9.jpg",  
+    dentinho: ['Tremoços', 'Amendoim']
+    },
+    {
+    name: 'Taberna da Poncha',       
+    opening_hours: '09:30',
+    address: 'Laje Serra De Agua Sitio da Lage, Serra de Água, Ribeira Brava, Madeira 9350-309 Portugal',
+    rating: 4.7, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669863403/taberna_fzehq0.jpg",  
+    dentinho: ['Amendoim']
+    },
+    {
+    name: 'Pub Number Two',       
+    opening_hours: '09:00',
+    address: 'Estrada Monumental 188A, 9000-018 Funchal',
+    rating: 4.5, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669863667/number2_dfw41a.jpg",  
+    dentinho: ['Amendoim', 'Tremoços']
+    },
+    {
+    name: 'Reguilha',
+    opening_hours: '16:00',
+    address: 'Estr. do Portinho, Gaula',
+    rating: 4.4, 
+    picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859426/No-Photo-Available_xposkb.jpg",  
+    dentinho: ['Azeitonas', 'Tremoços']
     }
  
 ];

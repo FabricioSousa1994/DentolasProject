@@ -74,6 +74,10 @@ const dentinhos = [
     {
         name: 'Pota',
         picture_url: 'https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757105/xenica_hotlhv.png'
+    },
+    {
+        name: 'Azeitonas',
+        picture_url: 'https://res.cloudinary.com/duy4rj4hd/image/upload/v1669864224/azeitonas_wj70yl.jpg' 
     }
 
-]
+];
