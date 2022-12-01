@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const dentinho = require('./Dentinho.model')
 
@@ -11,6 +11,6 @@ const barsSchema = new Schema({
     dentinho: [{type: Schema.Types.ObjectId, ref:'Dentinho'}],
 });
 
-const Bars = model('Bars', barsSchema);
+const Bars = model("Bars", barsSchema);
 
 module.exports = Bars;
