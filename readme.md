@@ -44,7 +44,7 @@ user/client
 {
   firstName: String,
   lastName: String,
-  userImageURL: String,
+  userImageURL: String
   email: String,
   password: String,
   favorites: [FavoriteId],
@@ -54,8 +54,7 @@ user/client
   }
 }
 
-Favorites model
-
+Favorites 
 {
   placeId: String,
 }
@@ -63,22 +62,19 @@ Favorites model
 
 Bar owner
 {
-    restaurantName: String,
-    dentinhoName: String,
-    dentinhoImage: String
-    email: Sting,
-    password, String
-    isOwner:{
-        type: Bollean,
-        required: true
-    }
+  name: String,
+  opening_hours: String,
+  address: String,
+  rating: Number,
+  picture_url: "",
+
 }
 
 Dentinho
 {
-    imageURL: String,
-    dentinhoName: String,
+    Name: String,
     RestaurantName: String
+    imageURL: String,
 }
 
 
