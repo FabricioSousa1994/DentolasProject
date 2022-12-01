@@ -8,7 +8,7 @@ const barsSchema = new Schema({
     address: String,
     rating: Number,
     picture_url: String,
-    dentinho: [dentinho],
+    dentinho: [{type: Schema.Types.ObjectId, ref:'Dentinho'}],
 });
 
 const Bars = model("Bars", barsSchema);
