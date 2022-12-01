@@ -15,33 +15,34 @@ const { isLoggedIn } = require('../middleware/route-guard');
 router.get('/', async (req, res, next) => {
     try {
       const bar = await Bar.find();
-      res.render('author/authors-list', { authors });
+      res.render('bar/bar-list', { bar });
     } catch (error) {
       next(error);
     }
   });
   
-  router.get('/:authorId', isLoggedIn, async (req, res, next) => {
+  router.get('/:barId', /*isLoggedIn,*/ async (req, res, next) => {
     try {
-      const { authorId } = req.params;
+      const { barId } = req.params;
   
-      const author = await Author.findById(authorId).populate('books');
-      const booksList = await Book.find();
-      const { _id, name, bio, picture_url, books } = author;
-      res.render('author/author-details', {
+      const bar = await Bar.findById(barId).populate('dentinho');
+      const dentinhoList = await Dentinho.find();
+      const { _id, name, picture_url } = bar;
+      res.render('bar/bar-details', {
         _id,
         name,
-        bio,
+        opening_hours,
+        address,
+        rating,
         picture_url,
-        books,
-        booksList
+        dentinho
       });
     } catch (error) {
       next(error);
     }
   });
   
-  router.post('/:authorId/edit', isLoggedIn, async (req, res, next) => {
+  /*router.post('/:authorId/edit', isLoggedIn, async (req, res, next) => {
     try {
       const { authorId } = req.params;
       // console.log(req.body);
@@ -53,7 +54,7 @@ router.get('/', async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-  });
+  });*/
   
   module.exports = router;
   
