@@ -6,5 +6,28 @@
     <input type="text" name="username" placeholder="username">
 </label>
 
-<label for=""></label>
+<label>
+    Email 
+    <input type="email" name="email" placeholder="you@ironhack.com">
+</label>
+
+<label>
+    Password
+    <input type="password" name="password" placeholder="*********">
+</label>
+
+<div class="dropdown">
+  <button class="dropbtn">Role</button>
+  <div class="dropdown-content">
+    <a href="#">Bar Owner</a>
+    <a href="#">Client</a>
+  </div>
+</div>
+
+<button type="submit">Signup</button>
+
 </form>
+
+{{#if errorMessage}}
+<p>{{errorMessage}}</p>
+{{/if}}
