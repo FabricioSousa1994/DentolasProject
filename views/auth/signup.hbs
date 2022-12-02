@@ -16,13 +16,22 @@
     <input type="password" name="password" placeholder="*********">
 </label>
 
-<div class="dropdown">
-  <button class="dropbtn">Role</button>
-  <div class="dropdown-content">
-    <a href="#">Bar Owner</a>
-    <a href="#">Client</a>
-  </div>
-</div>
+
+<select class="form-select" aria-label="Default select example">
+  <option selected>Select your role</option>
+  <option value="1">Bar Owner</option>
+  <option value="2">Client</option>
+</select>
+{{!<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Select your role
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>}}
 
 <button type="submit">Signup</button>
 

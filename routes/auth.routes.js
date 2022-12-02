@@ -3,7 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User.model');
-const { Router } = require('express');
+//const { Router } = require('express');
 const saltRounds = 10;
 
 
@@ -18,7 +18,11 @@ router.get('/signup', (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
     try {
         const {username, email, password, role} = req.body
-        if (!username || !email || !password || role) {
+        console.log(req.body)
+        await User.create({username, email, password, role});
+        console.log("User created")
+        res.render('/')
+        /*if (!username || !email || !password || role) {
             return res.render("auth/signup", {
               errorMessage: "All fields are required!",
             });
@@ -36,20 +40,27 @@ router.post('/signup', async (req, res, next) => {
           const passwordHash = await bcrypt.hashSync(password, salt);
           await User.create({ username, email, passwordHash, role});
           res.redirect("/profile");
-        } catch (error) {
-          if (error instanceof mongoose.Error.ValidationError) {
+        */} catch (error) {
+          /*if (error instanceof mongoose.Error.ValidationError) {
             res.status(500).render("auth/signup", { errorMessage: error.message });
           } else if (error.code === 11000) {
             res.status(500).render("auth/signup", {
               errorMessage: "Username or email already in use",
             });
           } else {
-            next(error);
+         */   next(error);
           }
         }
-      });
+      );
 
+router.get('/login', (req, res, next) => {
+  try {
+    res.render('auth/login')
+  } catch(error) {
+    next(error)
+  }
+})
 
-      module.exports = router;
+module.exports = router;
 
 
