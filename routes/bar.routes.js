@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
     }
   });
   
-  router.get('/:barId', /*isLoggedIn,*/ async (req, res, next) => {
+  router.get('/:barId', isLoggedIn, async (req, res, next) => {
     try {
       const { barId } = req.params;
   
