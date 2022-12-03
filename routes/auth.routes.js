@@ -18,10 +18,10 @@ router.get('/signup', (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
     try {
         const {username, email, password, role} = req.body
-        console.log(req.body)
-        await User.create({username, email, password, role});
+        console.log('body', req.body)
+      const newUser =  await User.create({username, email, password, role});
         console.log("User created")
-        res.render('/')
+        res.redirect('/')
         /*if (!username || !email || !password || role) {
             return res.render("auth/signup", {
               errorMessage: "All fields are required!",

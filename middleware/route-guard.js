@@ -5,6 +5,13 @@ const isLoggedIn = (req, res, next) => {
     next() 
     }
 
+// const isBarOwner = (req, res, next) => {
+//     if (!req.session.currentUser.role === 'barOwner') {
+//        return res.redirect('auth/login')
+//     }
+//     next() 
+//     }
+
 
 const isLoggedOut = (req, res, next) => {
     if(req.session.currentUser) {

@@ -31,7 +31,7 @@ const authRoutes = require('./routes/auth.routes');
 const dentinhoRoutes = require('./routes/dentinho.routes');*/
 
 app.use("/", indexRoutes);
-app.use('/auth', authRoutes);
+app.use('/', authRoutes);
 
 /*app.use('/bar', barRoutes);
 app.use('/dentinho', dentinhoRoutes);*/
