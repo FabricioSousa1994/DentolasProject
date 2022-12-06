@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const Bar = require('../models/Bars.model');
 const Dentinho = require('../models/Dentinho.model');
-const { isLoggedIn } = require('../middleware/route-guard');
+const { isLoggedIn, isBarOwner, isClient } = require('../middleware/route-guard');
 
 
 //creating a bar
 // isLoggendIn as a owner
+
+router.get('/', async (req, res, isBarOwner, next) => {
+  
+});
 
 
 

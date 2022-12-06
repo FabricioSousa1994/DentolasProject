@@ -1,34 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const Dentinho = require('../models/Dentinho.model');
-//const { isLoggedIn } = require('../middleware/route-guard');
+const { isLoggedIn, isBarOwner, isClient } = require('../middleware/route-guard');
 
 // ------ CRUD - Create -------
-/*router.get('/books/create', isLoggedIn, (req, res, next) => {
+router.get('/dentinho/create', isLoggedIn, isBarOwner, (req, res, next) => {
   try {
-    res.render('books/book-create');
+    res.render('dentinho/dentinho-create');
   } catch (error) {
     next(error);
   }
 });
 
-router.post('/books/create', isLoggedIn, async (req, res, next) => {
+router.post('/dentinho/create', isLoggedIn, isBarOwner, async (req, res, next) => {
   try {
     // console.log(req.body);
-    const { title, author, description, rating } = req.body;
-    const createdBook = await Book.create({
-      title,
-      author,
-      description,
-      rating
+    const { name, picture_url } = req.body;
+    const createdDentinho = await Dentinho.create({
+      name,
+      picture_url
     });
-    console.log('A new book was created:', createdBook.title);
+    console.log('A new dentinho was created:', createdDentinho.name);
     // after creating the book, we redirect the user to the list
-    res.redirect('/books');
+    res.redirect('/dentinho');
   } catch (error) {
     next(error);
   }
-});*/
+});
 
 
 
