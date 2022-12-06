@@ -6,7 +6,7 @@ const { isLoggedIn, isBarOwner, isClient } = require('../middleware/route-guard'
 // ------ CRUD - Create -------
 router.get('/dentinho/create', isLoggedIn, isBarOwner, (req, res, next) => {
   try {
-    res.render('dentinho/dentinho-create');
+    res.render('dentinhos/dentinho-create');
   } catch (error) {
     next(error);
   }
