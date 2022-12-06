@@ -40,7 +40,7 @@ router.post('/signup', async (req, res, next) => {
           const passwordHash = await bcrypt.hashSync(password, salt);
           await User.create({ username, email, passwordHash, role});
           res.redirect("/profile");
-          } catch (error) {
+        } catch (error) {
           if (error instanceof mongoose.Error.ValidationError) {
             res.status(500).render("auth/signup", { errorMessage: error.message });
           } else if (error.code === 11000) {
@@ -61,6 +61,42 @@ router.get('/login', (req, res, next) => {
     next(error)
   }
 })
+
+router.post("/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    //console.log("--> Session", req.session);
+    if (email === "" || password === "") {
+      return res.render("auth/login", {
+        errorMessage: "Please enter both email and password.",
+      });
+    }
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.render("auth/login", {
+        errorMessage: "Email is not registered. Please try another email.",
+      });
+      // checking if the password matches
+    } else if (bcrypt.compareSync(password, user.passwordHash)) {
+      // rendering the user to the profile view
+      req.session.currentUser = user;
+      res.redirect("bars/bar-list");
+    } else {
+      res.render("auth/login", { errorMessage: "Incorrect password." });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/logout", (req, res, next) => {
+  req.session.destroy((error) => {
+    if (error) {
+      next(error);
+    }
+    res.redirect("/");
+  });
+});
 
 module.exports = router;
 

@@ -2,12 +2,41 @@ const express = require('express');
 const router = express.Router();
 const Bar = require('../models/Bars.model');
 const Dentinho = require('../models/Dentinho.model');
-const { isLoggedIn } = require('../middleware/route-guard');
+const { isLoggedIn, isLoggedOut, isBarOwner, isClient} = require('../middleware/route-guard');
+const fileUploader = require('../config/cloudinary.config');
 
 
-//creating a bar
-// isLoggendIn as a owner
+router.get('/bars/create', (req, res, next) => {
+  try {
+    res.render('bars/bar-create')
+  }catch(error) {
+    next(error)
+  }
+});
 
+
+router.post("bars/bar-create", fileUploader.single('picture_url'), async (req, res, next) => {
+  try {
+    console.log('request file', req.file)
+    const { name, picture_url} = req.body;
+    const bar = {
+      name,
+      opening_hours,
+      address,
+      rating,
+      picture_url,
+      dentinho
+    };
+    if (req.file) {
+        bar.picture_url = req.file.path;
+    }
+    const newBar = await Bar.create(bar);
+    console.log('Bar created:', newBar.name);
+    res.redirect('bars/bar-list')
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 // CRUD - Read
@@ -15,20 +44,20 @@ const { isLoggedIn } = require('../middleware/route-guard');
 router.get('/', async (req, res, next) => {
     try {
       const bar = await Bar.find();
-      res.render('bar/bar-list', { bar });
+      res.render('bars/bar-list', {bar});
     } catch (error) {
       next(error);
     }
   });
   
-  router.get('/:barId', /*isLoggedIn,*/ async (req, res, next) => {
+  router.get('/:barId', async (req, res, next) => {
     try {
       const { barId } = req.params;
   
       const bar = await Bar.findById(barId).populate('dentinho');
       const dentinhoList = await Dentinho.find();
       const { _id, name, picture_url } = bar;
-      res.render('bar/bar-details', {
+      res.render('bars/bar-details', {
         _id,
         name,
         opening_hours,
@@ -42,19 +71,21 @@ router.get('/', async (req, res, next) => {
     }
   });
   
-  /*router.post('/:authorId/edit', isLoggedIn, async (req, res, next) => {
+  router.post('/:bar/edit', async (req, res, next) => {
     try {
-      const { authorId } = req.params;
+      const { barId } = req.params;
       // console.log(req.body);
-      const { books } = req.body;
-      await Author.findByIdAndUpdate(authorId, {
-        $push: { books }
+      const { bar } = req.body;
+      await Bar.findByIdAndUpdate(barId, {
+        $push: { bar }
       });
-      res.redirect(`/authors/${authorId}`);
+      res.redirect(`/bars/${barId}`);
     } catch (error) {
       next(error);
     }
-  });*/
+  });
+
+
   
   module.exports = router;
   
