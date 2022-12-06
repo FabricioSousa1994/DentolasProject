@@ -22,7 +22,7 @@ router.post('/signup', async (req, res, next) => {
       const newUser =  await User.create({username, email, password, role});
         console.log("User created")
         res.redirect('/')
-        /*if (!username || !email || !password || role) {
+        if (!username || !email || !password || role) {
             return res.render("auth/signup", {
               errorMessage: "All fields are required!",
             });
@@ -40,17 +40,18 @@ router.post('/signup', async (req, res, next) => {
           const passwordHash = await bcrypt.hashSync(password, salt);
           await User.create({ username, email, passwordHash, role});
           res.redirect("/profile");
-        */} catch (error) {
-          /*if (error instanceof mongoose.Error.ValidationError) {
+          } catch (error) {
+          if (error instanceof mongoose.Error.ValidationError) {
             res.status(500).render("auth/signup", { errorMessage: error.message });
           } else if (error.code === 11000) {
             res.status(500).render("auth/signup", {
               errorMessage: "Username or email already in use",
             });
           } else {
-         */   next(error);
+          next(error);
           }
         }
+      }
       );
 
 router.get('/login', (req, res, next) => {
