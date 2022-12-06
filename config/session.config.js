@@ -17,7 +17,7 @@ module.exports = (app) => {
         },
         rolling: true,
         store: mongoStore.create({
-            mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/library-project'
+            mongoUrl: process.env.MONGODB_URI || 'mongodb+srv://Antonio:Tm8MKjDoNBsnZAvY@cluster0.y5eekmw.mongodb.net/dentolas-project?retryWrites=true&w=majority'
         })
     })
     

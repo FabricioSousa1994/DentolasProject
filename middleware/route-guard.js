@@ -7,14 +7,14 @@ const isLoggedIn = (req, res, next) => {
 
 const isBarOwner = (req, res, next) => {
     if (!req.session.currentUser.role === '1') {
-        return res.redirect('auth/login')   //hide instead of redirect
+        return res.redirect('auth/login')   // insert error page
     }
     next() 
 };
 
 const isClient = (req, response, next) => {
     if (!req.sesion.currentUser.role === '2') {
-        return res.redirect('auth/login')
+        return res.redirect('auth/login') // insert error page
     }
     next()
 }
