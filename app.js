@@ -31,8 +31,8 @@ const profileRoutes = require('./routes/profile.routes');
 
 
 app.use("/", indexRoutes);
-app.use('/', authRoutes);
-app.use('/', barRoutes);
+app.use('/auth', authRoutes);
+app.use('/bars', barRoutes);
 app.use('/', dentinhoRoutes);
 app.use('/', profileRoutes);
 
