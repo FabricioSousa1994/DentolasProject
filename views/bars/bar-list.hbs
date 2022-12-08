@@ -1,5 +1,19 @@
 <h2>List of all Bars</h2>
 
+<form action="/bar-search" method="get">
+    <label> Search
+        <input type="text" name="barName">
+        <button type="submit">Search for a bar</button>
+    </label>
+</form>
+
+<form action="/dentinho-search" method="get">
+    <label> Search
+        <input type="text" name="artistName">
+        <button type="submit">Search for an artist</button>
+    </label>
+</form>
+
 {{#each bars}}
 <div>
     <p>Name:{{name}}</p>
