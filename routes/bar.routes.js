@@ -50,14 +50,15 @@ router.get('/bar-list', async (req, res, next) => {
     }
   });
   
-  router.get('/:barId', async (req, res, next) => {
+
+  router.get('/bar-search', async (req, res, next) => {
     try {
       const { barId } = req.params;
   
       const bar = await Bar.findById(barId).populate('dentinho');
       const dentinhoList = await Dentinho.find();
       const { _id, name, picture_url } = bar;
-      res.render('bars/bar-details', {
+      res.render('bars/bar-search-result', {
         _id,
         name,
         opening_hours,
@@ -66,6 +67,19 @@ router.get('/bar-list', async (req, res, next) => {
         picture_url,
         dentinho
       });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.get("/:barId", async (req, res, next) => {
+    try {
+      const { barId } = req.params;
+  
+      const bar = await Bar.findById(barId).populate('bars');
+      const barList = await Bar.find()
+      const {_id, name, opening_hours, address, rating, picture_url, dentinho} = bar;
+      res.render("bars/bar-details", {_id, name, opening_hours, address, rating, picture_url, dentinho});
     } catch (error) {
       next(error);
     }
