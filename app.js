@@ -31,19 +31,8 @@ const profileRoutes = require('./routes/profile.routes');
 
 
 app.use("/", indexRoutes);
-<<<<<<< HEAD
 app.use('/auth', authRoutes);
 app.use('/bars', barRoutes);
-=======
-<<<<<<< HEAD
-app.use('/auth', authRoutes);
-
-app.use('/bars', barRoutes);
-=======
-app.use('/', authRoutes);
-app.use('/', barRoutes);
->>>>>>> a4099da0cdab6d619ba2a40a85ca580b2d0a8185
->>>>>>> 0dc970ffc728f069a420f69c8299680588dc0554
 app.use('/', dentinhoRoutes);
 app.use('/', profileRoutes);
 
