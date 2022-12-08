@@ -3,7 +3,7 @@
 {{#each bars}}
 <div>
     <p>Name:{{name}}</p>
-    <p>Dentinho: {{dentinho}}</p>
+    <p>Dentinho: {{#each dentinho}} {{name}}, {{/each}}</p>
 
     <img src="{{picture_url}}" alt="">
     <a href="/bars/{{_id}}">See details</a>

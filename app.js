@@ -32,7 +32,7 @@ const dentinhoRoutes = require('./routes/dentinho.routes');
 app.use("/", indexRoutes);
 app.use('/auth', authRoutes);
 
-app.use('/bar', barRoutes);
+app.use('/bars', barRoutes);
 app.use('/', dentinhoRoutes);
 
 
