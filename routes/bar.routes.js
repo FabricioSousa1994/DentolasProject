@@ -76,7 +76,7 @@ router.get('/bar-list', async (req, res, next) => {
     try {
       const { barId } = req.params;
   
-      const bar = await Bar.findById(barId).populate('bars');
+      const bar = await Bar.findById(barId);
       const barList = await Bar.find()
       const {_id, name, opening_hours, address, rating, picture_url, dentinho} = bar;
       res.render("bars/bar-details", {_id, name, opening_hours, address, rating, picture_url, dentinho});
