@@ -34,7 +34,7 @@ router.post('/dentinho/create', isLoggedIn, isBarOwner, async (req, res, next) =
 
 // list of all dentinhos     
 // -------REVIEW NEEDED ---------
-router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
+router.get('/dentinhos/dentinho-list', /*isLoggedIn,*/ async (req, res, next) => {
     try {
       const allDentinho = await Dentinho.find();
       res.render('dentinhos/dentinho-list', { dentinho: allDentinho });
