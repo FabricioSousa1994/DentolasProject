@@ -1,50 +1,69 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Dentinho = require('../models/Dentinho.model');
-const { isLoggedIn, isBarOwner, isClient } = require('../middleware/route-guard');
+const Dentinho = require("../models/Dentinho.model");
+const {
+  isLoggedIn,
+  isBarOwner,
+  isClient,
+} = require("../middleware/route-guard");
+const fileUploader = require("../config/cloudinary.config");
 
 // ------ CRUD - Create -------
-router.get('/dentinho/create', isLoggedIn, isBarOwner, (req, res, next) => {
-  try {
-    res.render('dentinhos/dentinho-create');
-  } catch (error) {
-    next(error);
+router.get(
+  "/dentinhos/create",
+  /*isLoggedIn, isBarOwner,*/ (req, res, next) => {
+    try {
+      res.render("dentinhos/dentinho-create");
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
-router.post('/dentinho/create', isLoggedIn, isBarOwner, async (req, res, next) => {
-  try {
-    // console.log(req.body);
-    const { name, picture_url } = req.body;
-    const createdDentinho = await Dentinho.create({
+router.post(
+  "/dentinhos/create",
+  fileUploader.single("picture_url"),
+  /*isLoggedIn,
+  isBarOwner,*/
+  async (req, res, next) => {
+    try {
+      const { name, picture_url } = req.body;
+      const dentinho = { name };
+      if (req.file) {
+        dentinho.picture_url = req.file.path;
+      }
+      const newDentinho = await Dentinho.create(dentinho);
+      /*const createdDentinho = await Dentinho.create({
       name,
       picture_url
-    });
-    console.log('A new dentinho was created:', createdDentinho.name);
-    // after creating the book, we redirect the user to the list
-    res.redirect('/dentinho');
-  } catch (error) {
-    next(error);
+    });*/
+      //console.log("A new dentinho was created:", createdDentinho.name);
+      // after creating the book, we redirect the user to the list
+      res.redirect("/dentinhos/dentinho-list");
+    } catch (error) {
+      next(error);
+    }
   }
-});
-
-
+);
 
 // ----- CRUD - Read ------
 
-// list of all dentinhos     
+// list of all dentinhos
 // -------REVIEW NEEDED ---------
-router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
+router.get(
+  "/dentinhos/dentinho-list",
+  /*isLoggedIn,*/ async (req, res, next) => {
     try {
       const allDentinho = await Dentinho.find();
-      res.render('dentinhos/dentinho-list', { dentinho: allDentinho });
+      res.render("dentinhos/dentinho-list", { dentinho: allDentinho });
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
       next(error);
     }
-  });
-  
-  /*router.get('/dentinho/:dentinhoId', isLoggedIn ,async (req, res, next) => {
+  }
+);
+
+/*router.get('/dentinho/:dentinhoId', isLoggedIn ,async (req, res, next) => {
     try {
       // console.log(req.params);
       const { dentinhoId } = req.params;
@@ -55,10 +74,10 @@ router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
       next(error);
     }
   });*/
-  
-  // ------- CRUD - Update ------
-  
-  /*router.get('/dentinho/:dentinhoId/edit', isLoggedIn, isBarOwner, async (req, res, next) => {
+
+// ------- CRUD - Update ------
+
+/*router.get('/dentinho/:dentinhoId/edit', isLoggedIn, isBarOwner, async (req, res, next) => {
     try {
       const { dentinhoId } = req.params;
       const dentinho = await Dentinho.findById(dentinhoId);
@@ -81,10 +100,10 @@ router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
       next(error);
     }
   });*/
-  
-  // CRUD - Delete
-  
-  router.post('/dentinho/:dentinhoId/delete', isLoggedIn, isBarOwner, async (req, res, next) => {
+
+// CRUD - Delete
+
+/*router.post('/dentinho/:dentinhoId/delete', isLoggedIn, isBarOwner, async (req, res, next) => {
     try {
       const { dentinhoId } = req.params;
       await Book.findByIdAndDelete(dentinhoId);
@@ -92,9 +111,6 @@ router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-  });
+  });*/
 
-
-  
-  module.exports = router;
-  
+module.exports = router;
