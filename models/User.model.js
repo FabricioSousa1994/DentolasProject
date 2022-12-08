@@ -23,7 +23,8 @@ const userSchema = new Schema(
     role: {
       type: String,
       required: true
-    }
+    },
+    favorites: []
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

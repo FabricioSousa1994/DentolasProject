@@ -27,13 +27,14 @@ const indexRoutes = require("./routes/index.routes");
 const authRoutes = require('./routes/auth.routes');
 const barRoutes = require('./routes/bar.routes');
 const dentinhoRoutes = require('./routes/dentinho.routes');
+const profileRoutes = require('./routes/profile.routes');
 
 
 app.use("/", indexRoutes);
-app.use('/auth', authRoutes);
-
-app.use('/bar', barRoutes);
+app.use('/', authRoutes);
+app.use('/', barRoutes);
 app.use('/', dentinhoRoutes);
+app.use('/', profileRoutes);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
