@@ -41,10 +41,10 @@ router.post("bars/bar-create", fileUploader.single('picture_url'), async (req, r
 
 // CRUD - Read
 
-router.get('/', async (req, res, next) => {
+router.get('/bar-list', async (req, res, next) => {
     try {
-      const bar = await Bar.find();
-      res.render('bars/bar-list', {bar});
+      const bars = await Bar.find().populate('dentinho');
+      res.render('bars/bar-list', {bars});
     } catch (error) {
       next(error);
     }
