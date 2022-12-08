@@ -4,7 +4,7 @@ const Dentinho = require('../models/Dentinho.model');
 const { isLoggedIn, isBarOwner, isClient } = require('../middleware/route-guard');
 
 // ------ CRUD - Create -------
-router.get('/dentinho/create', isLoggedIn, isBarOwner, (req, res, next) => {
+/*router.get('/dentinho/create', isLoggedIn, isBarOwner, (req, res, next) => {
   try {
     res.render('dentinhos/dentinho-create');
   } catch (error) {
@@ -26,7 +26,7 @@ router.post('/dentinho/create', isLoggedIn, isBarOwner, async (req, res, next) =
   } catch (error) {
     next(error);
   }
-});
+});*/
 
 
 
@@ -84,7 +84,7 @@ router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
   
   // CRUD - Delete
   
-  router.post('/dentinho/:dentinhoId/delete', isLoggedIn, isBarOwner, async (req, res, next) => {
+  /*router.post('/dentinho/:dentinhoId/delete', isLoggedIn, isBarOwner, async (req, res, next) => {
     try {
       const { dentinhoId } = req.params;
       await Book.findByIdAndDelete(dentinhoId);
@@ -92,9 +92,9 @@ router.get('/dentinho', /*isLoggedIn,*/ async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-  });
+  });*/
 
 
   
-  module.exports = router;
+module.exports = router;
   
