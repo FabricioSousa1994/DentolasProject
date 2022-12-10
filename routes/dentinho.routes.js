@@ -65,7 +65,6 @@ router.get('/dentinho-search', async (req, res, next) => {
       name,
       opening_hours,
       address,
-      rating,
       picture_url
       } = bar;
     res.render('bars/bar-search-result', {
@@ -73,7 +72,6 @@ router.get('/dentinho-search', async (req, res, next) => {
       name,
       opening_hours,
       address,
-      rating,
       picture_url,
       dentinho
     });
