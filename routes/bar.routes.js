@@ -13,8 +13,7 @@ const fileUploader = require("../config/cloudinary.config");
 router.get("/create", async (req, res, next) => {
   try {
     const dentinho = await Dentinho.find();
-    res.render("bars/bar-create" , { dentinho });
-    
+    res.render("bars/bar-create", { dentinho });
   } catch (error) {
     next(error);
   }
@@ -26,13 +25,12 @@ router.post(
   async (req, res, next) => {
     try {
       console.log("request file", req.file);
-      const { name, picture_url } = req.body;
+      const { name, opening_hours, address, dentinho, picture_url } = req.body;
+      console.log(name);
       const bar = {
         name,
         opening_hours,
         address,
-        rating,
-        picture_url,
         dentinho,
       };
       if (req.file) {
@@ -40,7 +38,7 @@ router.post(
       }
       const newBar = await Bar.create(bar);
       console.log("Bar created:", newBar.name);
-      res.redirect("bars/bar-list");
+      res.redirect("/bars/bar-list");
     } catch (error) {
       next(error);
     }
@@ -62,10 +60,24 @@ router.get("/bar-search", async (req, res, next) => {
   try {
     const { barName } = req.query;
 
+<<<<<<< HEAD
     //console.log(barName)
 
     const bar = await Bar.find({name: barName}).populate("dentinho");
     res.render("bars/bar-search-result", {bar});
+=======
+    const bar = await Bar.findById(barId).populate("bars");
+    const dentinhoList = await Dentinho.find();
+    const { _id, name, picture_url } = bar;
+    res.render("bars/bar-search-result", {
+      _id,
+      name,
+      opening_hours,
+      address,
+      picture_url,
+      dentinho,
+    });
+>>>>>>> 30ef4069e4a6c5d7180e2a0967c19e6abda3ead4
   } catch (error) {
     next(error);
   }

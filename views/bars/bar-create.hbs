@@ -1,6 +1,6 @@
 <h1>Add a new bar</h1>
 
-<form action="/dentinhos/create" method="post" enctype="multipart/form-data">
+<form action="/bars/create" method="post" enctype="multipart/form-data">
     <label>
         Name
         <input type="text" name="name">
@@ -26,7 +26,7 @@
 {{#each dentinho}}
     <label>
         {{name}}
-        <input type="checkbox" value="{{__id}}">
+        <input type="checkbox" value="{{_id}}">
     </label>
 {{/each}}
 
