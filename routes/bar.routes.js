@@ -60,20 +60,12 @@ router.get("/bar-list", async (req, res, next) => {
 
 router.get("/bar-search", async (req, res, next) => {
   try {
-    const { barId } = req.params;
+    const { barName } = req.query;
 
-    const bar = await Bar.findById(barId).populate("bars");
-    const dentinhoList = await Dentinho.find();
-    const { _id, name, picture_url } = bar;
-    res.render("bars/bar-search-result", {
-      _id,
-      name,
-      opening_hours,
-      address,
-      rating,
-      picture_url,
-      dentinho,
-    });
+    //console.log(barName)
+
+    const bar = await Bar.find({name: barName}).populate("dentinho");
+    res.render("bars/bar-search-result", {bar});
   } catch (error) {
     next(error);
   }
@@ -84,7 +76,7 @@ router.get("/:barId", async (req, res, next) => {
     const { barId } = req.params;
 
     const bar = await Bar.findById(barId).populate("dentinho");
-    console.log(bar);
+    //console.log(bar);
     res.render("bars/bar-details", bar);
   } catch (error) {
     next(error);

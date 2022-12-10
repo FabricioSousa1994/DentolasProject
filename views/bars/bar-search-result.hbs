@@ -1,7 +1,9 @@
-{{#each bars}}
-<h1>Bar: {{name}}</h1>
+{{#each bar}}
+<h1>{{this.name}}</h1>
 <img src="{{picture_url}}">
-<p>{{dentinho}}</p>
+{{#each dentinho}}
+<p>{{name}}</p>
 {{/each}}
-
  <a href="/bars/{{_id}}">See details</a>
+ {{/each}}
+
