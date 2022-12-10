@@ -10,9 +10,11 @@ const {
 } = require("../middleware/route-guard");
 const fileUploader = require("../config/cloudinary.config");
 
-router.get("/create", (req, res, next) => {
+router.get("/create", async (req, res, next) => {
   try {
-    res.render("bars/bar-create");
+    const dentinho = await Dentinho.find();
+    res.render("bars/bar-create" , { dentinho });
+    
   } catch (error) {
     next(error);
   }
