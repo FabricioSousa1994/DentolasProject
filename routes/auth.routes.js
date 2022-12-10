@@ -3,7 +3,6 @@ const router = express.Router()
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User.model');
-//const { Router } = require('express');
 const saltRounds = 10;
 
 
@@ -18,15 +17,13 @@ router.get('/signup', (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
     try {
         const {username, email, password, role} = req.body
-        console.log('body', req.body)
-      const newUser =  await User.create({username, email, password, role});
-        console.log("User created")
-        res.redirect('/')
-        if (!username || !email || !password || role) {
-            return res.render("auth/signup", {
-              errorMessage: "All fields are required!",
-            });
-          }
+
+        if (!username || !email || !password || !role) {
+          return res.render("auth/signup", {
+            errorMessage: "All fields are required!",
+          });
+        }
+
           const passwordRegex =
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
           if (!passwordRegex.test(password)) {
@@ -37,9 +34,9 @@ router.post('/signup', async (req, res, next) => {
             });
           }
           const salt = await bcrypt.genSalt(saltRounds);
-          const passwordHash = await bcrypt.hashSync(password, salt);
+          const passwordHash = bcrypt.hashSync(password, salt);
           await User.create({ username, email, passwordHash, role});
-          res.redirect("/profile");
+          res.redirect("/login");
         } catch (error) {
           if (error instanceof mongoose.Error.ValidationError) {
             res.status(500).render("auth/signup", { errorMessage: error.message });
@@ -65,7 +62,7 @@ router.get('/login', (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    //console.log("--> Session", req.session);
+    // console.log("--> Session", req.session);
     if (email === "" || password === "") {
       return res.render("auth/login", {
         errorMessage: "Please enter both email and password.",
