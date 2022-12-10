@@ -26,15 +26,15 @@
        <input type="file" name="picture_url">
     </label>
 
+<p>Dentinhos available:</p>
 {{#each dentinho}}
     <label>
-        <p>banana</p>
+        {{name}}
         <input type="checkbox" value="{{name}}">
-        <img src="{{picture_url}}" />
-        
-        <input type="checkbox" value="Tremoços">
     </label>
 {{/each}}
+
+<button type="submit">Create</button>
 </form>
 
 
