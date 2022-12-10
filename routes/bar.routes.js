@@ -6,7 +6,7 @@ const { isLoggedIn, isLoggedOut, isBarOwner, isClient} = require('../middleware/
 const fileUploader = require('../config/cloudinary.config');
 
 
-router.get('/bars/create', (req, res, next) => {
+router.get('/create', (req, res, next) => {
   try {
     res.render('bars/bar-create')
   }catch(error) {
@@ -15,7 +15,7 @@ router.get('/bars/create', (req, res, next) => {
 });
 
 
-router.post("bars/bar-create", fileUploader.single('picture_url'), async (req, res, next) => {
+router.post("/create", fileUploader.single('picture_url'), async (req, res, next) => {
   try {
     console.log('request file', req.file)
     const { name, picture_url} = req.body;
@@ -55,7 +55,7 @@ router.get('/bar-list', async (req, res, next) => {
     try {
       const { barId } = req.params;
   
-      const bar = await Bar.findById(barId).populate('dentinho');
+      const bar = await Bar.findById(barId).populate('bars');
       const dentinhoList = await Dentinho.find();
       const { _id, name, picture_url } = bar;
       res.render('bars/bar-search-result', {

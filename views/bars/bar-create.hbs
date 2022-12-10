@@ -1,6 +1,6 @@
 <h1>Add a new bar</h1>
 
-<form action="bars/bar-create" method="post">
+<form action="/dentinhos/create" method="post" enctype="multipart/form-data">
     <label>
         Name
         <input type="text" name="name">
@@ -8,14 +8,30 @@
 
     <label>
         Opening Hours
-        <input type="text" name="">
+        <input type="text" name="opening-hours">
+    </label>
+
+    <label>
+        Address
+        <input type="text" name="address">
+    </label>
+
+    <label>
+        Rating
+        <input type="text" name="rating">
+    </label>
+
+    <label>
+        Picture
+       <input type="file" name="picture_url">
+    </label>
+
+    <label>
+        Dentinho
+        <input type="checkbox" value="Tremoços">
     </label>
 </form>
 
 
-name,
-      opening_hours,
-      address,
-      rating,
-      picture_url,
+
       dentinho
