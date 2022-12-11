@@ -195,7 +195,7 @@ const bars = [
     address: 'Tv. dos Piornais 9000, 9000-000 Funchal',
     rating: 4.4, 
     picture_url: "https://res.cloudinary.com/duy4rj4hd/image/upload/v1669859426/No-Photo-Available_xposkb.jpg",  
-    dentinho: ['6389043c805ffa5924c24ca4'], 
+    dentinho: ['6389043c805ffa5924c24cb2'], 
     },
     {
     name: 'Bar 21',         

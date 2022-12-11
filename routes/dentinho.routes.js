@@ -59,7 +59,7 @@ router.get('/dentinho-search', async (req, res, next) => {
   try {
     const { dentinhoName } = req.query;
 
-    const dentinho = await Dentinho.findById(dentinhoId).populate('bars');
+    const dentinho = await Dentinho.find(dentinhoName).populate('bars');
     const barList = await Bar.find();
     const { _id,
       name,
@@ -67,14 +67,7 @@ router.get('/dentinho-search', async (req, res, next) => {
       address,
       picture_url
       } = bar;
-    res.render('bars/bar-search-result', {
-      _id,
-      name,
-      opening_hours,
-      address,
-      picture_url,
-      dentinho
-    });
+    res.render('bars/bar-search-result', bar);
   } catch (error) {
     next(error);
   }
