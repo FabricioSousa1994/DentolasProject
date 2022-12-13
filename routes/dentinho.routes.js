@@ -59,10 +59,14 @@ router.get('/dentinho-search', async (req, res, next) => {
   try {
     const { dentinhoName } = req.query;
 
-    const dentinho = await Dentinho.find({name: dentinhoName}).populate('bar');
-    console.log(dentinho);
-    //const barList = await Bar.findById();
-    res.render('dentinhos/dentinho-search-result', {dentinho});
+    const dentinhosList = await Dentinho.find().populate('bar');
+
+    const filteredDentinhos = dentinhosList.filter((dentinho) => {
+      if (dentinho.name.toLocaleLowerCase().startsWith(dentinhoName.toLocaleLowerCase())) return dentinho
+    })
+
+    console.log(filteredDentinhos)
+    res.render('dentinhos/dentinho-search-result', {filteredDentinhos});
   } catch (error) {
     next(error);
   }

@@ -1,1 +1,8 @@
-<h1>DENTINHOS</h1>
+{{#each filteredDentinhos}}
+  <h1>{{this.name}}</h1>
+  <img src="{{picture_url}}">
+    {{#each this.bar}}
+      <p>{{name}}</p>
+      <a href="/bars/{{_id}}">See details</a>
+    {{/each}}
+{{/each}}
