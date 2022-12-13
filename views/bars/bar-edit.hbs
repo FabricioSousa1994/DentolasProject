@@ -1,0 +1,35 @@
+<h2>Edit your Bar: {{name}}</h2>
+
+
+<form action="/bars/{{_id}}/edit" method="post">
+<label>
+    Name
+    <input type="text" name="name">
+</label>
+
+<label>
+      Opening Hours
+    <input type="text" name="opening-hours">
+</label>
+
+<label>
+    Address
+    <input type="text" name="address">
+</label>
+
+<label>
+    Picture
+    <input type="file" name="picture_url">
+</label>
+
+<p>Dentinhos available:</p>
+
+{{#each dentinho}}
+    <label>
+        {{dentinho.name}}
+        <input type="checkbox" value="{{_id}}">
+    </label>
+{{/each}}
+
+<button type="submit">Edit</button>
+</form>

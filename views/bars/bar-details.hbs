@@ -11,3 +11,8 @@
 <img src="{{picture_url}}" />
 {{/each}}
       
+<a href="/bars/{{_id}}/edit">Edit</a>
+
+<form action="/bars/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
