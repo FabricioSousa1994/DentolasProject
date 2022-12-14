@@ -5,14 +5,14 @@ const isLoggedIn = (req, res, next) => {
     next() 
 };
 
-const isBarOwner = (req, res, next) => {
+const isAdmin = (req, res, next) => {
     if (!req.session.currentUser.role === 'barOwner') {
         return res.redirect('auth/login')   // insert error page
     }
     next() 
 };
 
-const isClient = (req, response, next) => {
+const isUser = (req, response, next) => {
     if (!req.sesion.currentUser.role === 'client') {
         return res.redirect('auth/login') // insert error page
     }
@@ -26,4 +26,4 @@ const isLoggedOut = (req, res, next) => {
     next()
 };    
 
-module.exports = {isLoggedIn, isLoggedOut, isBarOwner, isClient}
+module.exports = {isLoggedIn, isLoggedOut, isAdmin, isUser}

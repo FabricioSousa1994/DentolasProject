@@ -4,8 +4,8 @@ const Dentinho = require("../models/Dentinho.model");
 const Bar = require('../models/Bars.model')
 const {
   isLoggedIn,
-  isBarOwner,
-  isClient,
+  isAdmin,
+  isUser,
 } = require("../middleware/route-guard");
 const fileUploader = require("../config/cloudinary.config");
 
@@ -77,7 +77,7 @@ router.get('/dentinho-search', async (req, res, next) => {
 
 // CRUD - Delete
 
-router.post('/dentinho/:dentinhoId/delete', isLoggedIn, isBarOwner, async (req, res, next) => {
+router.post('/dentinho/:dentinhoId/delete', isLoggedIn, isAdmin, async (req, res, next) => {
     try {
       const { dentinhoId } = req.params;
       await Book.findByIdAndDelete(dentinhoId);

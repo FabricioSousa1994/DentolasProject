@@ -5,8 +5,8 @@ const Dentinho = require("../models/Dentinho.model");
 const {
   isLoggedIn,
   isLoggedOut,
-  isBarOwner,
-  isClient,
+  isAdmin,
+  isUser,
 } = require("../middleware/route-guard");
 const fileUploader = require("../config/cloudinary.config");
 
@@ -62,8 +62,8 @@ router.get("/bar-search", async (req, res, next) => {
 
     //console.log(barName)
 
-    const bar = await Bar.find({ name: barName }).populate("dentinho");
-    res.render("bars/bar-search-result", { bar });
+    const bar = await Bar.find({name: barName}).populate("dentinho");
+    res.render("bars/bar-search-result", {bar});
   } catch (error) {
     next(error);
   }
@@ -81,42 +81,18 @@ router.get("/:barId", async (req, res, next) => {
   }
 });
 
-router.get("/:barId/edit", async (req, res, next) => {
+router.post("/:bar/edit", async (req, res, next) => {
   try {
     const { barId } = req.params;
-    const bar = await Bar.findById();
-    res.render("bars/bar-edit", bar);
+    // console.log(req.body);
+    const { bar } = req.body;
+    await Bar.findByIdAndUpdate(barId, {
+      $push: { bar },
+    });
+    res.redirect(`/bars/${barId}`);
   } catch (error) {
     next(error);
   }
 });
-
-router.post("/:barId/edit", async (req, res, next) => {
-  try {
-    const { barId } = req.params;
-    const { name, opening_hours, address, dentinho } = req.body;
-    const updateBar = await Bar.findByIdAndUpdate(barId, {
-      name,
-      opening_hours,
-      address,
-      dentinho,
-    }).populate(dentinho);
-    res.redirect(`/bars/${updateBar._id}`);
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.post('/bars/:barId/delete', async (req, res, next) => {
-  try {
-    const { barId } = req.params;
-    await Bar.findByIdAndDelete(barId);
-    res.redirect('/bars/bar-list');
-  } catch (error) {
-    next(error);
-  }
-});
-
-//delete
 
 module.exports = router;
