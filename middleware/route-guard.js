@@ -6,14 +6,14 @@ const isLoggedIn = (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) => {
-    if (!req.session.currentUser.role === 'barOwner') {
+    if (!req.session.currentUser.role === 'admin') {
         return res.redirect('auth/login')   // insert error page
     }
     next() 
 };
 
 const isUser = (req, response, next) => {
-    if (!req.sesion.currentUser.role === 'client') {
+    if (!req.sesion.currentUser.role === 'user') {
         return res.redirect('auth/login') // insert error page
     }
     next()

@@ -16,9 +16,9 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
     try {
-        const {username, email, password, role} = req.body
+        const {username, email, password} = req.body
 
-        if (!username || !email || !password || !role) {
+        if (!username || !email || !password) {
           return res.render("auth/signup", {
             errorMessage: "All fields are required!",
           });
@@ -35,6 +35,7 @@ router.post('/signup', async (req, res, next) => {
           }
           const salt = await bcrypt.genSalt(saltRounds);
           const passwordHash = bcrypt.hashSync(password, salt);
+          const role = "user"
           await User.create({ username, email, passwordHash, role});
           res.redirect("/login");
         } catch (error) {
