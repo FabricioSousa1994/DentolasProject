@@ -23,27 +23,6 @@ const projectName = "PojectModule2";
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 
-//api 
-/*const axios = require('axios');
-
-async function getWeather(req, res) {
-  try {
-    // Make a GET request to the API to get the current weather for the specified city
-    let city = req.params
-    const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=cedf31e084d64c42b8d202504221312&q=Madeira&aqi=no`, {
-    });
-    console.log(response)
-
-    // Print the current temperature in the console
-    res.send(`The current temperature in ${madeira} is ${response.data.observation.temp} degrees Fahrenheit.`);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-getWeather('cedf31e084d64c42b8d202504221312', 'madeira');*/
-
-
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 const authRoutes = require('./routes/auth.routes');
