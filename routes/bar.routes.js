@@ -69,13 +69,12 @@ router.get("/bar-search", async (req, res, next) => {
   }
 });
 
-router.get("/:barId", async (req, res, next) => {
+router.post("/:barId/delete", async (req, res, next) => {
   try {
+    console.log("here");
     const { barId } = req.params;
-
-    const bar = await Bar.findById(barId).populate("dentinho");
-    //console.log(bar);
-    res.render("bars/bar-details", bar);
+    await Bar.findByIdAndDelete(barId);
+    res.redirect("/bars/bar-list");
   } catch (error) {
     next(error);
   }
@@ -84,7 +83,7 @@ router.get("/:barId", async (req, res, next) => {
 router.get("/:barId/edit", async (req, res, next) => {
   try {
     const { barId } = req.params;
-    const bar = await Bar.findById();
+    const bar = await Bar.findById(barId);
     res.render("bars/bar-edit", bar);
   } catch (error) {
     next(error);
@@ -101,17 +100,19 @@ router.post("/:barId/edit", async (req, res, next) => {
       address,
       dentinho,
     }).populate(dentinho);
-    res.redirect("/:barId");
+    res.redirect(`/bars/${updateBar._id}`);
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/bars/:barId/delete", async (req, res, next) => {
+router.get("/:barId", async (req, res, next) => {
   try {
     const { barId } = req.params;
-    await Bar.findByIdAndDelete(barId);
-    res.redirect("/bars/bar-list");
+
+    const bar = await Bar.findById(barId).populate("dentinho");
+    //console.log(bar);
+    res.render("bars/bar-details", bar);
   } catch (error) {
     next(error);
   }
