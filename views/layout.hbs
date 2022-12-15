@@ -37,8 +37,8 @@
       <script>
          async function getWeather() {
             let response = await fetch('http://api.weatherapi.com/v1/current.json?key=cedf31e084d64c42b8d202504221312&q=Funchal&aqi=no')
-         
             let data = await response.json();
+         console.log('api', data)
 
             document.getElementById("Location").innerHTML = `${data.location.region}, ${data.location.name}`;
             document.getElementById("Temp").innerHTML = `${data.current.temp_c}ºC`;
