@@ -1,25 +1,21 @@
 <h2>Signup</h2>
 
-<form action="/signup" method="post">
-<label>
-    Username
-    <input type="text" name="username" placeholder="username">
-</label>
-
-<label>
-    Email 
-    <input type="email" name="email" placeholder="you@ironhack.com">
-</label>
-
-<label>
-    Password
-    <input type="password" name="password" placeholder="*********">
-</label>
-
-
-<button type="submit">Signup</button>
-
+<form>
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">Username</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Signup</button>
 </form>
+
 
 {{#if errorMessage}}
 <p>{{errorMessage}}</p>
