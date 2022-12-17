@@ -1,18 +1,19 @@
+
+<form action="/login" method="post" style="max-width: 500px; margin: auto">
+
 <h1>Login</h1>
 
-<form action="/login" method="post">
 
-    <label>
-        Email
-        <input type="email" name="email" placeholder="you@hotmail.com">
-    </label>
+<div class="form-floating mb-3 mx-auto">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating mx-auto">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
 
-    <label>
-        Password
-        <input type="password" name="password" placeholder="*******">
-    </label>
-
-    <button type="submit">Login</button>
+<button type="submit" class="btn btn-primary">Login</button>
 
 </form>
 
