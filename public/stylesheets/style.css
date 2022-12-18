@@ -2,10 +2,6 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url('https://res.cloudinary.com/duy4rj4hd/image/upload/v1671274731/website-background-23_a3oqdq.jpg');
-<<<<<<< HEAD
-=======
-  background-size: cover;
->>>>>>> ff5c43dad6ea465730b4f7c73a8985ea1cae6ce1
 }
 
 a {
@@ -19,9 +15,16 @@ h1 {
 
 .card {
   margin: 1%;
+  
 }
 
+.card-body {
+  color: burlywood;
+  background-image: url('https://res.cloudinary.com/duy4rj4hd/image/upload/v1671274731/website-background-23_a3oqdq.jpg');
+}
 
-
-
+.nav-bar {
+  padding: 0;
+  margin-top: 0;
+}
 
