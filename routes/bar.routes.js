@@ -83,8 +83,9 @@ router.post("/:barId/delete", async (req, res, next) => {
 router.get("/:barId/edit", async (req, res, next) => {
   try {
     const { barId } = req.params;
+    const dentinho = await Dentinho.find();
     const bar = await Bar.findById(barId);
-    res.render("bars/bar-edit", bar);
+    res.render("bars/bar-edit", {bar, dentinho});
   } catch (error) {
     next(error);
   }
