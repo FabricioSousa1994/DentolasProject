@@ -31,6 +31,20 @@ const dentinhoRoutes = require('./routes/dentinho.routes');
 const profileRoutes = require('./routes/profile.routes');
 
 
+function checkIfLoggedIn(req,res,next) {
+	let user = req.session.currentUser || undefined;
+	if ( user ) {
+		res.locals.loggedIn = true;
+		next();
+	} else {
+        res.locals.loggedIn = false;
+        next();
+        return;
+    }
+};
+
+app.use(checkIfLoggedIn);
+
 app.use("/", indexRoutes);
 app.use('/', authRoutes);
 app.use('/bars', barRoutes);

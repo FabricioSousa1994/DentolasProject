@@ -24,7 +24,7 @@
 
   <body>
 
-    <nav class="navbar nav navbar-expand-lg bg-transparent test">
+    <nav class="navbar nav navbar-expand-lg bg-transparent">
         <a class="navbar-brand" href="/">Dentinho da Madeira</a>
         <button
           class="navbar-toggler"
@@ -53,24 +53,28 @@
             </li>
           </ul>
         </div>
-        <div class="column">
+        <div class="weather">
           <h6 id="Location"></h6>
           <h6 id="Temp"></h6>
           <img id="Image" src="" />
         </div>
         <div>
           <ul class="navbar-nav">
+            {{#unless loggedIn}}
             <li class="nav-item">
-              <a class="btn btn-light me-1" href="/signup">Signup</a>
+              <a class="btn btn-light me-1" id="SignupButton" href="/signup">Signup</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-light me-1" href="/login">Login</a>
+              <a class="btn btn-light me-1" id="LoginButton" href="/login">Login</a>
             </li>
+            {{/unless}}
+            {{#if loggedIn}}
             <li class="nav-item">
-              <form action="/logout" method="post">
-                <button class="btn btn-light me-1" type="submit">Logout</button>
+              <form class="logoutForm" action="/logout" method="post">
+                <button class="btn btn-light me-1" id="LogoutButton" type="submit">Logout</button>
               </form>
             </li>
+            {{/if}}
           </ul>
         </div>
       </div>
