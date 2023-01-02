@@ -66,13 +66,13 @@ router.post("/login", async (req, res, next) => {
     // console.log("--> Session", req.session);
     if (email === "" || password === "") {
       return res.render("auth/login", {
-        errorMessage: "Please enter both email and password.",
+        errorMessage: "Please enter both email and password!",
       });
     }
     const user = await User.findOne({ email });
     if (!user) {
       return res.render("auth/login", {
-        errorMessage: "Email is not registered. Please try another email.",
+        errorMessage: "Email is not registered. Please try another email!",
       });
       // checking if the password matches
     } else if (bcrypt.compareSync(password, user.passwordHash)) {
@@ -81,7 +81,7 @@ router.post("/login", async (req, res, next) => {
       res.locals.loggedIn = true;
       res.redirect("bars/bar-list");
     } else {
-      res.render("auth/login", { errorMessage: "Incorrect password." });
+      res.render("auth/login", { errorMessage: "Incorrect password!" });
     }
   } catch (error) {
     next(error);

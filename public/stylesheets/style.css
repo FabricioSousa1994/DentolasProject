@@ -25,13 +25,28 @@ h1 {
   background-image: url('https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg');
 }
 
+/* Navbar style */
+
 .nav-bar {
   padding: 0;
   margin-top: 0;
 }
 
+.navbar {
+  background-color: rgba(255, 255, 255, 0.441);
+}
+
+.nav-link {
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
 .navbar-brand {
   font-weight: bold;
+  margin-left: .5rem;
   text-transform: uppercase;
   background: url(https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg);
   background-size: cover;
@@ -93,16 +108,22 @@ h1 {
   height: 3rem;
 }
 
+/* Main container style */
+
 .container-fluid {
   margin: 0;
   padding: 0;
 }
+
+/* Home page style */
 
 .home {
   background-image: url("https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif");
   height: 100vh;
   width: 100%;
   top: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .home > h3 {
@@ -118,3 +139,150 @@ h1 {
   text-shadow: .2rem .2rem black;
 }
 
+/* Auth forms pages styles */
+
+.card-auth {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 2rem;
+  
+}
+
+.card-body-auth {
+  width: 40rem;
+  min-height: 20rem;
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: black 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardImage {
+  width: 20rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+.authForms {
+  width: 100%;
+}
+
+.form-floating {
+  width: 80%
+}
+
+.errorDiv {
+  margin-top: 1rem;
+  border-radius: .5rem;
+  display: flex;
+  text-align: left;
+  width: 80%;
+  min-height: 2rem;
+  color: white;
+  background-color: #c00000;
+}
+
+.errorDiv > p {
+  margin-left: .5rem;
+  margin-bottom: 0;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+
+/* Bars list page style */
+
+.labels {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  height: fit-content;
+  align-items: baseline;
+}
+
+.searchInput {
+  background: transparent;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchButton {
+  height: 100%;
+}
+
+.card-text {
+  min-height: 3rem;
+}
+
+/* Bar details page */
+
+.barDetailsName{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.barMainImage {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  max-height: 100vh;
+}
+
+.hoursLabel {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.addressLabel {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+
+.dentinhosPerBar {
+  margin: 2rem
+}
+
+.adminControlButtons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.editButton {
+  margin-right: 1rem;
+}
+
+.deleteButton {
+  background-color: #c00000;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #850000;
+}
+
+/* Dentinho serch result page */
+
+.dentinhoResultTitle {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

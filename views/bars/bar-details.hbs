@@ -1,18 +1,25 @@
-<h1>{{name}}</h1>
-<ul>
-    <li>{{opening_hours}}</li>
-    <li>{{address}}</li>
-    <li><img src="{{picture_url}}" /></li>
-</ul>
+<h1 class="barDetailsName">{{name}}</h1>
+<img src="{{picture_url}}" class="barMainImage"/>
+<h3 class="hoursLabel">Running hours: {{opening_hours}}</h3>
+<h3 class="addressLabel">Address: {{address}}</h3>
 
+<div class="row dentinhosPerBar row-cols-4">
+  {{#each dentinho}}
+    <div class="card" style="width: 18rem; padding-right: 0; padding-left: 0">
+      <img src="{{picture_url}}" class="card-img-top" alt="{{name}}" style="height: 15rem"/>
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+      </div>
+    </div>
+  {{/each}}
+</div>
 
-{{#each dentinho}}
-<p>{{name}}</p>
-<img src="{{picture_url}}" />
-{{/each}}
-      
-<a href="/bars/{{_id}}/edit">Edit</a>
+<div class="adminControlButtons">
+     <form action="/bars/{{_id}}/edit" method="get">
+        <button type="submit" class="btn btn-primary mb-3 editButton">Edit</button>
+    </form>
 
-<form action="/bars/{{_id}}/delete" method="post">
-    <button type="submit">Delete</button>
-</form>
+    <form action="/bars/{{_id}}/delete" method="post">
+        <button type="submit" class="btn btn-primary mb-3 deleteButton">Delete</button>
+    </form>
+</div>

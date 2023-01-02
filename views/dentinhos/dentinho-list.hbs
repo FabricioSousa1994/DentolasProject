@@ -1,17 +1,14 @@
-<form action="/dentinho-search" method="get">
-
-<div class="col-auto">
-    <label class="labels" style="color:burlywood; font-size:large">
-    Type the name of the dentinho you want, and we'll show you the list of bars with it:
-    <input type="text" name="dentinhoName" />
-    <button type="submit" class="btn btn-primary mb-3">Search for dentinho</button>
-  </label>
-  </div>
-</form>
-
-<br>
-
 <div class="container">
+  <form action="/dentinho-search" method="get">
+
+    <div class="col-auto">
+      <label class="labels" style="color:rgb(0, 0, 0); font-size:large">
+      Find bars that serve your favourite dentinho:
+      <input type="text" name="dentinhoName" class="searchInput"/>
+      <button type="submit" class="btn btn-primary mb-3 searchButton">Search for dentinho</button>
+      </label>
+    </div>
+  </form>
   <div class="row row-cols-1 row-cols-md-6 g-4">
       {{#each dentinho}}
     <div class="card" style="width: 18rem; padding: 0" >

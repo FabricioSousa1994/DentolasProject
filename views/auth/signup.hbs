@@ -1,28 +1,37 @@
-<form action="/signup" method="post" style="max-width: 500px; margin: auto">
+<div class="card-auth">
+  <div class="card-body-auth">
+    
+    <img class="cardImage" src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif" alt="Dentinho image">
 
-<h1>Signup</h1>
+    <form class="authForms" action="/signup" method="post">
+
+    <h1>Signup</h1>
 
 
-<div class="form-floating mb-3 mx-auto">
-  <input type="username" name="username" class="form-control" id="floatingPassword" placeholder="*********">
-  <label for="floatingInput">Username</label>
+    <div class="form-floating mb-3 mx-auto">
+      <input type="username" name="username" class="form-control" id="floatingPassword" placeholder="*********">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-3 mx-auto">
+      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mx-auto">
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Signup</button>
+
+    
+      {{#if errorMessage}}
+      <div class="form-floating mb-3 mx-auto errorDiv">
+        <p>{{errorMessage}}</p>
+      </div>
+      {{/if}}
+
+    </form> 
+  </div>
 </div>
-<div class="form-floating mb-3 mx-auto">
-  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">Email address</label>
-</div>
-<div class="form-floating mx-auto">
-  <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-  <label for="floatingPassword">Password</label>
-</div>
-
-<br>
-
-<button type="submit" class="btn btn-primary">Signup</button>
-
-</form> 
-
-
-{{#if errorMessage}}
-<p>{{errorMessage}}</p>
-{{/if}}

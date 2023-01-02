@@ -1,16 +1,13 @@
-<form action="/bars/bar-search" method="get">
-
-  <div class="col-auto">
-    <label class="labels" style="color:black; font-size:large">
-    Type the name of the bar you are looking for:
-    <input type="text" name="barName" />
-    <button type="submit" class="btn btn-primary mb-3">Search for a bar</button>
-  </label>
-  </div>
-</form>
-
-
 <div class="container">
+  <form action="/bars/bar-search" method="get">
+    <div class="col-auto">
+      <label class="labels" style="color:black; font-size:large">
+      Type the name of the bar you are looking for:
+      <input type="text" name="barName" class="searchInput"/>
+      <button type="submit" class="btn btn-primary mb-3 searchButton">Search for a bar</button>
+    </label>
+    </div>
+  </form>
     <div class="row bars row-cols-4">
   {{#each bars}}
     <div class="card" style="width: 18rem; padding-right: 0; padding-left: 0">
