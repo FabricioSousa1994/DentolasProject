@@ -1,9 +1,7 @@
 body {
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #abbaab;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  background: url(https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg)
 }
 
 a {
@@ -21,8 +19,8 @@ h1 {
 }
 
 .card-body {
-  color: white;
-  background-image: url('https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg');
+  color: black;
+  background-color: white;
 }
 
 /* Navbar style */
@@ -30,10 +28,12 @@ h1 {
 .nav-bar {
   padding: 0;
   margin-top: 0;
+  
 }
 
 .navbar {
   background-color: rgba(255, 255, 255, 0.441);
+  
 }
 
 .nav-link {
@@ -112,7 +112,7 @@ h1 {
 
 .container-fluid {
   margin: 0;
-  padding: 0;
+  padding-top: 2rem;
 }
 
 /* Home page style */
@@ -195,6 +195,10 @@ h1 {
   display: flex;
 }
 
+/*dentinho list style*/
+#dentinho-div {
+  margin: 0 auto;
+}
 
 /* Bars list page style */
 
@@ -204,7 +208,14 @@ h1 {
   margin-top: 1rem;
   height: fit-content;
   align-items: baseline;
+  background-color: white;
+  border-radius: 2rem;
+  max-width: 60%;
+  padding-left: 1.2rem;
+  padding-top: 1.5rem;
+  
 }
+
 
 .searchInput {
   background: transparent;
@@ -278,11 +289,18 @@ h1 {
   background-color: #850000;
 }
 
-/* Dentinho serch result page */
+/* Dentinho search result page */
 
 .dentinhoResultTitle {
   width: 100%;
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+/*Bar search result */
+
+.card-barResult {
+  width: 45rem;
+  height: 100vh;
 }
