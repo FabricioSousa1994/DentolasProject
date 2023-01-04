@@ -1,21 +1,29 @@
-<h1>Create a new Dentinho</h1>
+<div class="card-create">
+  <div class="card-createBody">
+
+<img class="CreatecardImage" src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1669757241/Dentolas/Bar_das_Romeiras_rafu2m.png" alt="Dentinho image">
+
+<div class="createContainer">
+<h4>Create a new Dentinho</h4>
 
 
-
-<form class="row g-3" action="/dentinhos/create" method="post" enctype="multipart/form-data">
-  <div class="col-md-4">
+<form class="createForms" action="/dentinhos/create" method="post" enctype="multipart/form-data">
+  <div class="create-labels">
     <label for="validationDefault01" class="form-label">Dentinho Name</label>
     <input type="text" class="form-control" id="validationDefault01" required>
   </div>
 
 
-  <div class="col-md-4">
+  <div class="create-labels">
     <label for="validationDefault01" class="form-label">Picture</label>
     <input type="file" class="form-control" id="validationDefault01" name="picture_url" required>
   </div>
 
-  <div class="col-12">
+  <div class="create-btn">
     <button class="btn btn-primary" type="submit">Create Dentinho!</button>
   </div>
 
 </form>
+</div>
+</div>
+</div>

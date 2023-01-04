@@ -1,37 +1,55 @@
-<h1>Add a new bar</h1>
+<div class="card mb-3">
+  <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1672792109/Avalon-best-bar_xlgnbc.jpg" class="card-img-top" alt="pubImg">
+  <div class="card-body">
+    <h4 class="card-title-create">Add a new bar</h4>
+    <form class="bar-create-form" action="/bars/create" method="post" enctype="multipart/form-data">
+    
+    <div class="create-labels">
+    <label for="validationDefault01" class="form-label">Bar Name</label>
+    <input type="text" class="form-control" id="validationDefault01" required>
+  </div>
 
-<form action="/bars/create" method="post" enctype="multipart/form-data">
-    <label>
-        Name
-        <input type="text" name="name">
-    </label>
+    <div class="create-labels">
+    <label for="validationDefault01" class="form-label">Opening Hours</label>
+    <input type="text" class="form-control" id="validationDefault01" required>
+  </div>
 
-    <label>
-        Opening Hours
-        <input type="text" name="opening-hours">
-    </label>
+    <div class="create-labels">
+    <label for="validationDefault01" class="form-label">Address</label>
+    <input type="text" class="form-control" id="validationDefault01" required>
+  </div>
 
-    <label>
-        Address
-        <input type="text" name="address">
-    </label>
 
-    <label>
-        Picture
-       <input type="file" name="picture_url">
-    </label>
+  <div class="create-labels">
+    <label for="validationDefault01" class="form-label">Picture</label>
+    <input type="file" class="form-control" id="validationDefault01" name="picture_url" style="width: 27%" required>
+  </div>
 
-<p>Dentinhos available:</p>
+<br>
 
-{{#each dentinho}}
+<div>
+    <h6>Choose the available dentinho:</h6>
+  {{#each dentinho}}
     <label>
         {{name}}
         <input type="checkbox" value="{{_id}}">
     </label>
 {{/each}}
+</select>
+</div>
 
-<button type="submit">Create</button>
+
+<div class="create-btn">
+    <button class="btn btn-primary" type="submit">Create Bar!</button>
+</div>
 </form>
+</div>
+</div>
+
+
+
+
+
 
 
 
