@@ -35,6 +35,7 @@ function checkIfLoggedIn(req,res,next) {
 	let user = req.session.currentUser || undefined;
 	if ( user ) {
 		res.locals.loggedIn = true;
+		res.locals.isAdmin = user.role === "admin";
 		next();
 	} else {
         res.locals.loggedIn = false;

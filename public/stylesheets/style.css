@@ -24,6 +24,14 @@ h1 {
   background-color: white;
 }
 
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  border: 1px solid rgba(255, 255, 255, 0.21);
+}
+
 /* Navbar style */
 
 .nav-bar {
@@ -111,10 +119,12 @@ h1 {
 
 /* Main container style */
 
-/*.container-fluid {
+.container-fluid {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
   margin: 0;
   padding-top: 2rem;
-}*/
+}
 
 /* Home page style */
 
@@ -244,6 +254,11 @@ h1 {
 
 /* Bar details page */
 
+.barDetails {
+  margin: 0 auto;
+  border-radius: 2rem;
+}
+
 .barDetailsName{
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -267,6 +282,11 @@ h1 {
 .addressLabel {
   font-size: 1.5rem;
   margin-left: 2rem;
+}
+
+.barDetailsDentinho {
+  background: url(https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg);
+  color: white;
 }
 
 .dentinhosPerBar {
@@ -296,10 +316,11 @@ h1 {
 /* Dentinho search result page */
 
 .dentinhoResultTitle {
-  width: 100%;
+  background-color: white;
+  border-radius: 2rem;
+  max-width: 50%;
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
 }
 
 /*Bar search result */
