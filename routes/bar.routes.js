@@ -101,7 +101,7 @@ router.post("/:barId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
       address,
       dentinho,
     }).populate(dentinho);
-    res.redirect(`/bars/${updateBar._id}`);
+    res.redirect(`/${updateBar._id}`);
   } catch (error) {
     next(error);
   }
