@@ -29,10 +29,7 @@ router.post(
   async (req, res, next) => {
     try {
       const { name, picture_url } = req.body;
-      const dentinho = { name };
-      if (req.file) {
-        dentinho.picture_url = req.file.path;
-      }
+      const dentinho = { name, picture_url};
       const newDentinho = await Dentinho.create(dentinho);
       res.redirect("/dentinhos/dentinho-list");
     } catch (error) {

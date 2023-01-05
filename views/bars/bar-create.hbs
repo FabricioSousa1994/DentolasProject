@@ -2,27 +2,27 @@
   <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1672875716/001cd71f-1440_nfjuel.jpg" class="card-img-top" alt="pubImg">
   <div class="card-body">
     <h4 class="card-title-create">Add a new bar</h4>
-    <form class="bar-create-form" action="/bars/create" method="post" enctype="multipart/form-data">
+    <form class="bar-create-form" action="/bars/create" method="post">
     
     <div class="create-labels">
     <label for="validationDefault01" class="form-label">Bar Name</label>
-    <input type="text" class="form-control" id="validationDefault01" required>
+    <input type="text" name="name" class="form-control" id="validationDefault01" required>
   </div>
 
     <div class="create-labels">
     <label for="validationDefault01" class="form-label">Opening Hours</label>
-    <input type="text" class="form-control" id="validationDefault01" required>
+    <input type="text" name="opening_hours" class="form-control" id="validationDefault01" required>
   </div>
 
     <div class="create-labels">
     <label for="validationDefault01" class="form-label">Address</label>
-    <input type="text" class="form-control" id="validationDefault01" required>
+    <input type="text" name="address" class="form-control" id="validationDefault01" required>
   </div>
 
 
   <div class="create-labels">
     <label for="validationDefault01" class="form-label">Picture</label>
-    <input type="file" class="form-control" id="validationDefault01" name="picture_url" style="width: 27%" required>
+    <input type="text" class="form-control" id="validationDefault01" name="picture_url" required>
   </div>
 
 <br>
@@ -32,7 +32,7 @@
   {{#each dentinho}}
     <label>
         {{name}}
-        <input type="checkbox" value="{{_id}}">
+        <input type="checkbox" name="dentinho" value="{{_id}}">
     </label>
 {{/each}}
 </select>

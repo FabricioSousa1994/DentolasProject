@@ -24,20 +24,16 @@ router.post(
   fileUploader.single("picture_url"), isLoggedIn, isAdmin,
   async (req, res, next) => {
     try {
-      console.log("request file", req.file);
       const { name, opening_hours, address, dentinho, picture_url } = req.body;
-      console.log(name);
       const bar = {
         name,
         opening_hours,
         address,
+        picture_url,
         dentinho,
       };
-      if (req.file) {
-        bar.picture_url = req.file.path;
-      }
+
       const newBar = await Bar.create(bar);
-      console.log("Bar created:", newBar.name);
       res.redirect("/bars/bar-list");
     } catch (error) {
       next(error);
@@ -94,14 +90,15 @@ router.get("/:barId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 router.post("/:barId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const { barId } = req.params;
-    const { name, opening_hours, address, dentinho } = req.body;
+    const { name, opening_hours, address, dentinho, picture_url } = req.body;
     const updateBar = await Bar.findByIdAndUpdate(barId, {
       name,
       opening_hours,
       address,
+      picture_url,
       dentinho,
-    }).populate(dentinho);
-    res.redirect(`/${updateBar._id}`);
+    });
+    res.redirect(`/bars/${updateBar._id}`);
   } catch (error) {
     next(error);
   }
