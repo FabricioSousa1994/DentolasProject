@@ -25,7 +25,7 @@
 
   <body>
 
-    <nav class="navbar nav navbar-expand-lg">
+        <nav class="navbar nav navbar-expand-lg">
         <a class="navbar-brand" href="/">Dentinho da Madeira</a>
         <button
           class="navbar-toggler"
@@ -42,17 +42,17 @@
           {{#if loggedIn}}
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link btn btn-light me-1 link" href="/bars/bar-list">Bars</a>
+              <a class="nav-link" href="/bars/bar-list">Bars</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-light me-1 link" href="/dentinhos/dentinho-list">Dentinhos</a>
+              <a class="nav-link" href="/dentinhos/dentinho-list">Dentinhos</a>
             </li>
             {{#if isAdmin}}
             <li class="nav-item">
-              <a class="nav-link btn btn-light me-1 link" href="/dentinhos/create">Add a new dentinho</a>
+              <a class="nav-link" href="/dentinhos/create">Add a new dentinho</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-light me-1 link" href="/bars/create">Add a new bar</a>
+              <a class="nav-link" href="/bars/create">Add a new bar</a>
             </li>
             {{/if}}
           </ul>
