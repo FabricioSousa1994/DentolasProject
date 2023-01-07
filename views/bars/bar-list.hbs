@@ -1,37 +1,47 @@
-<h2>List of Bars</h2>
+<h2 class="centered barList">List of Bars</h2>
 
+<div class="d-flex justify-content-evenly">
 <form action="/bars/bar-search" method="get">
 
-  <div class="col-auto">
+<div class="input-group mb-3">
+  <input type="text" class="form-control" name="barName" placeholder="Search">
+  <button class="input-group-text" id="basic-addon2">Search for a bar</button>
+</div>
+
+<!--  <div class="col-auto">
     <label>
-    Search
-    <input type="text" name="barName" />
+    <input type="text" name="barName" placeholder="Search"/>
     <button type="submit" class="btn btn-primary mb-3">Search for a bar</button>
   </label>
-  </div>
+  </div>-->
 </form>
+
 
 <form action="/dentinho-search" method="get">
+<div class="input-group mb-3">
+  <input type="text" class="form-control" name="dentinhoName" placeholder="Search">
+  <button class="input-group-text" id="basic-addon2">Search for dentinho</button>
+</div>
 
-<div class="col-auto">
-    <label>
-    Search
-    <input type="text" name="dentinhoName" />
+ <!-- <label>
+    <input class="form-control me-2" type="text" name="dentinhoName" placeholder="Search"/>
     <button type="submit" class="btn btn-primary mb-3">Search for dentinho</button>
-  </label>
-  </div>
-</form>
+  </label>-->
 
-<div class="container">
+
+</form>
+</div>
+
+<div class="container ">
     <div class="row row-cols-4">
   {{#each bars}}
-    <div class="card" style="width: 300px;">
-      <img src="{{picture_url}}" class="card-img-top" alt="{{name}}" />
+    <div class="card text-center" style="width: 300px;">
+      <img src="{{picture_url}}" class="card-img-top cardImage" alt="{{name}}" />
       <div class="card-body">
         <h5 class="card-title">{{name}}</h5>
         <p class="card-text">Dentinho:
           {{#each dentinho}} {{name}}, {{/each}}</p>
-        <a href="/bars/{{_id}}" class="btn btn-primary">See details</a>
+        <a href="/bars/{{_id}}" class="btn btn-primary centered">See details</a>
       </div>
     </div>
   {{/each}}

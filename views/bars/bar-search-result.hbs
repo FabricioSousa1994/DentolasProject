@@ -1,9 +1,16 @@
-{{#each bar}}
-<h1>{{this.name}}</h1>
-<img src="{{picture_url}}">
-{{#each dentinho}}
-<p>{{name}}</p>
-{{/each}}
- <a href="/bars/{{_id}}">See details</a>
- {{/each}}
 
+<div class="container ">
+    <div class="row row-cols-4">
+  {{#each bars}}
+    <div class="card text-center" style="width: 300px;">
+      <img src="{{picture_url}}" class="card-img-top cardImage" alt="{{name}}" />
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">Dentinho:
+          {{#each dentinho}} {{name}}, {{/each}}</p>
+        <a href="/bars/{{_id}}" class="btn btn-primary centered">See details</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
+</div>

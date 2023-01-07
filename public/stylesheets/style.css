@@ -16,9 +16,135 @@ h1 {
 
 .card {
   margin: 1%;
+  color: black;
+  background-color: rgba(161, 161, 162, 0.5);
+  justify-content: space-around;
+}
+
+* {
+  color: white;
+  background-attachment: fixed;
+}
+
+.centered {
+  text-align: center;
+  margin: auto;
+}
+
+.api {
+  height: 1%;
+}
+
+.cardImage {
+  padding-top: 3%;
+}
+
+nav {
+  background-color: rgba(161, 161, 162, 0.5);
+}
+
+.link {
+  background-color: rgba(161, 161, 162, 0.5);
+  border: 0;
+  color: azure;
+}
+
+.barList {
+  font-family: 'Droid serif', serif ;
+  font-size: 40px; 
+  font-weight: 400; 
+  font-style: italic; 
+  line-height: 44px;
+}
+
+.card-title {
+  font-family: 'Droid serif', serif ;
+  font-style: italic;
+}
+
+.dentinhos {
+  text-align: center;
+  font-family: 'Droid serif', serif ;
+  font-size: 40px; 
+  font-weight: 400; 
+  font-style: italic; 
+  line-height: 44px;
+}
+
+.card-img-top {
+  padding-top: 3%;
+}
+
+.create {
+  font-family: 'Trocchi', serif; 
+  font-size: 45px; 
+  font-weight: normal; 
+  line-height: 48px;
+}
+
+.form-label {
+  font-family: 'Trocchi', serif; 
+  font-size: 20px;
+  font-weight: normal; 
+}
+
+.introTitle {
+  text-align: center;
+  font-family: 'Droid serif', serif ;
+  font-size: 50px; 
+  font-weight: 400; 
+  font-style: italic; 
+  line-height: 44px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.intro {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif; 
+  font-size: 25px;
+  padding-bottom: 5%;
+}
+
+.intro2 {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif; 
+  font-size: 20px;
+}
+
+.dentinhoBox {
+  color: black;
+}
+
+.list-group-item {
+  width: 25%;
+}
+
+.barDetails {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif; 
+  font-size: 25px;
+  padding-bottom: 5%;
+  
+  list-style-type: none;
+}
+
+.li {
+  margin: 2%;
+}
+
+.barImg {
+  max-width: 80vw;
+  max-height: 80vh;
 }
 
 
+.barDentinhoEdit {
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
 
-
+.createButton {
+  margin: 3%;
+}
 

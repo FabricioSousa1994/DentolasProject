@@ -1,10 +1,14 @@
 {{#each filteredDentinhos}}
-  <h1>Bars with: {{this.name}}</h1>
+<h1 class="centered barList">Bars with: {{this.name}}</h1>
+  <div class="row row-cols-4">
     {{#each this.bar}}
-      <p>{{name}}</p>
-      <img src="{{picture_url}}">
-      <a href="/bars/{{_id}}">See details</a>
+    <div class="card text-center" style="width: 300px;">
+      <img src="{{picture_url}}" class="card-img-top cardImage">
+      <div class="card-body">
+      <p class="card-title">{{name}}</p>
+      <a href="/bars/{{_id}}" class="btn btn-primary centered">See details</a>
+      </div>
+      </div>
     {{/each}}
+  </div>
 {{/each}}
-
-

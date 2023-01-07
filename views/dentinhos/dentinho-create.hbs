@@ -1,17 +1,31 @@
-<h1>Create a new Dentinho</h1>
+<h1 class="create">Create a new Dentinho</h1>
 
-
-
-<form class="row g-3" action="/dentinhos/create" method="post" enctype="multipart/form-data">
+<form
+  class="row g-3"
+  action="/dentinhos/create"
+  method="post"
+  enctype="multipart/form-data"
+>
   <div class="col-md-4">
     <label for="validationDefault01" class="form-label">Dentinho Name</label>
-    <input type="text" class="form-control" id="validationDefault01" required>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      id="validationDefault01"
+      required
+    />
   </div>
-
 
   <div class="col-md-4">
     <label for="validationDefault01" class="form-label">Picture</label>
-    <input type="file" class="form-control" id="validationDefault01" name="picture_url" required>
+    <input
+      type="file"
+      class="form-control"
+      id="validationDefault01"
+      name="picture_url"
+      required
+    />
   </div>
 
   <div class="col-12">
