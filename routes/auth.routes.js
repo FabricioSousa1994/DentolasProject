@@ -4,9 +4,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User.model');
 const saltRounds = 10;
+const {
+  isLoggedIn,
+  isLoggedOut,
+  isAdmin,
+  isUser,
+} = require("../middleware/route-guard");
 
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', isLoggedOut, (req, res, next) => {
     try {
         res.render('auth/signup')
     } catch(error) {
@@ -14,7 +20,7 @@ router.get('/signup', (req, res, next) => {
     }
 });
 
-router.post('/signup', async (req, res, next) => {
+router.post('/signup', isLoggedOut, async (req, res, next) => {
     try {
         const {username, email, password} = req.body
 
@@ -52,7 +58,7 @@ router.post('/signup', async (req, res, next) => {
       }
       );
 
-router.get('/login', (req, res, next) => {
+router.get('/login', isLoggedOut, (req, res, next) => {
   try {
     res.render('auth/login')
   } catch(error) {
@@ -60,38 +66,42 @@ router.get('/login', (req, res, next) => {
   }
 })
 
-router.post("/login", async (req, res, next) => {
+router.post("/login", isLoggedOut, async (req, res, next) => {
   try {
     const { email, password } = req.body;
     // console.log("--> Session", req.session);
     if (email === "" || password === "") {
       return res.render("auth/login", {
-        errorMessage: "Please enter both email and password.",
+        errorMessage: "Please enter both email and password!",
       });
     }
     const user = await User.findOne({ email });
     if (!user) {
       return res.render("auth/login", {
-        errorMessage: "Email is not registered. Please try another email.",
+        errorMessage: "Email is not registered. Please try another email!",
       });
       // checking if the password matches
     } else if (bcrypt.compareSync(password, user.passwordHash)) {
       // rendering the user to the profile view
       req.session.currentUser = user;
+      res.locals.loggedIn = true;
+      res.locals.isAdmin = user.role === "admin";
       res.redirect("bars/bar-list");
     } else {
-      res.render("auth/login", { errorMessage: "Incorrect password." });
+      res.render("auth/login", { errorMessage: "Incorrect password!" });
     }
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/logout", (req, res, next) => {
+router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((error) => {
     if (error) {
       next(error);
     }
+    res.locals.loggedIn = false;
+    res.locals.isAdmin = false;
     res.redirect("/");
   });
 });

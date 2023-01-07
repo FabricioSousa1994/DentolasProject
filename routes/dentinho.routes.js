@@ -12,7 +12,7 @@ const fileUploader = require("../config/cloudinary.config");
 // ------ CRUD - Create -------
 router.get(
   "/dentinhos/create",
-  /*isLoggedIn, isBarOwner,*/ (req, res, next) => {
+  isLoggedIn, isAdmin, (req, res, next) => {
     try {
       res.render("dentinhos/dentinho-create");
     } catch (error) {
@@ -24,15 +24,12 @@ router.get(
 router.post(
   "/dentinhos/create",
   fileUploader.single("picture_url"),
-  /*isLoggedIn,
-  isBarOwner,*/
+  isLoggedIn,
+  isAdmin, 
   async (req, res, next) => {
     try {
       const { name, picture_url } = req.body;
-      const dentinho = { name };
-      if (req.file) {
-        dentinho.picture_url = req.file.path;
-      }
+      const dentinho = { name, picture_url};
       const newDentinho = await Dentinho.create(dentinho);
       res.redirect("/dentinhos/dentinho-list");
     } catch (error) {
@@ -44,7 +41,7 @@ router.post(
 // ----- CRUD - Read ------
 router.get(
   "/dentinhos/dentinho-list",
-  /*isLoggedIn,*/ async (req, res, next) => {
+  isLoggedIn, async (req, res, next) => {
     try {
       const allDentinho = await Dentinho.find();
       res.render("dentinhos/dentinho-list", { dentinho: allDentinho });
@@ -55,7 +52,7 @@ router.get(
   }
 );
 
-router.get('/dentinho-search', async (req, res, next) => {
+router.get('/dentinho-search', isLoggedIn, async (req, res, next) => {
   try {
     const { dentinhoName } = req.query;
 

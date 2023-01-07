@@ -1,30 +1,29 @@
-<h1 class="introTitle">{{name}}</h1>
-<ul class="barDetails">
-    <li class="li">Opening hours: {{opening_hours}}</li>
-    <li class="li">Address: {{address}}</li>
-    <li class="li"><img class="barImg" src="{{picture_url}}" /></li>
-</ul>
 
-<p class="barDetails">Dentinhos available on this bar:</p>
+<div class="card barDetails" style="width: 80%; padding-right: 0; padding-left: 0">
+  <h1 class="barDetailsName">{{name}}</h1>
+  <img src="{{picture_url}}" class="barMainImage"/>
+  <h3 class="hoursLabel">Running hours: {{opening_hours}}</h3>
+  <h3 class="addressLabel">Address: {{address}}</h3>
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-6 g-4">
-      {{#each dentinho}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{picture_url}}" class="card-img-top">
-      <div class="card-body">
-        <h4 class="card-title">{{name}}</h4>
+  <div class="row dentinhosPerBar row-cols-4">
+    {{#each dentinho}}
+      <div class="card" style="width: 18rem; padding-right: 0; padding-left: 0">
+        <img src="{{picture_url}}" class="card-img-top" alt="{{name}}" style="height: 15rem"/>
+        <div class="card-body barDetailsDentinho">
+          <h5 class="card-title">{{name}}</h5>
+        </div>
       </div>
-    </div>
-      {{/each}}
+    {{/each}}
   </div>
+  {{#if isAdmin}}
+  <div class="adminControlButtons">
+      <form action="/bars/{{_id}}/edit" method="get">
+          <button type="submit" class="btn btn-primary mb-3 editButton">Edit</button>
+      </form>
+
+      <form action="/bars/{{_id}}/delete" method="post">
+          <button type="submit" class="btn btn-primary mb-3 deleteButton">Delete</button>
+      </form>
+  </div>
+  {{/if}}
 </div>
-
-<div class="col-12 barDentinhoEdit">
-    <a class="btn btn-primary" href="/bars/{{_id}}/edit">Edit</a>
-</div>
-
-
-<form action="/bars/{{_id}}/delete" method="post">
-    <button class="btn btn-primary" type="submit">Delete Bar</button>
-</form>

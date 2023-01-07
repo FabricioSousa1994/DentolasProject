@@ -10,7 +10,7 @@ const {
 } = require("../middleware/route-guard");
 const fileUploader = require("../config/cloudinary.config");
 
-router.get("/create", async (req, res, next) => {
+router.get("/create", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const dentinho = await Dentinho.find();
     res.render("bars/bar-create", { dentinho });
@@ -21,23 +21,19 @@ router.get("/create", async (req, res, next) => {
 
 router.post(
   "/create",
-  fileUploader.single("picture_url"),
+  fileUploader.single("picture_url"), isLoggedIn, isAdmin,
   async (req, res, next) => {
     try {
-      console.log("request file", req.file);
       const { name, opening_hours, address, dentinho, picture_url } = req.body;
-      console.log(name);
       const bar = {
         name,
         opening_hours,
         address,
+        picture_url,
         dentinho,
       };
-      if (req.file) {
-        bar.picture_url = req.file.path;
-      }
+
       const newBar = await Bar.create(bar);
-      console.log("Bar created:", newBar.name);
       res.redirect("/bars/bar-list");
     } catch (error) {
       next(error);
@@ -47,7 +43,7 @@ router.post(
 
 // CRUD - Read
 
-router.get("/bar-list", async (req, res, next) => {
+router.get("/bar-list", isLoggedIn, async (req, res, next) => {
   try {
     const bars = await Bar.find().populate("dentinho");
     res.render("bars/bar-list", { bars });
@@ -56,7 +52,7 @@ router.get("/bar-list", async (req, res, next) => {
   }
 });
 
-router.get("/bar-search", async (req, res, next) => {
+router.get("/bar-search", isLoggedIn, async (req, res, next) => {
   try {
     const { barName } = req.query;
 
@@ -69,7 +65,7 @@ router.get("/bar-search", async (req, res, next) => {
   }
 });
 
-router.post("/:barId/delete", async (req, res, next) => {
+router.post("/:barId/delete", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     console.log("here");
     const { barId } = req.params;
@@ -80,7 +76,7 @@ router.post("/:barId/delete", async (req, res, next) => {
   }
 });
 
-router.get("/:barId/edit", async (req, res, next) => {
+router.get("/:barId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const { barId } = req.params;
     const dentinho = await Dentinho.find();
@@ -91,23 +87,24 @@ router.get("/:barId/edit", async (req, res, next) => {
   }
 });
 
-router.post("/:barId/edit", async (req, res, next) => {
+router.post("/:barId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const { barId } = req.params;
-    const { name, opening_hours, address, dentinho } = req.body;
+    const { name, opening_hours, address, dentinho, picture_url } = req.body;
     const updateBar = await Bar.findByIdAndUpdate(barId, {
       name,
       opening_hours,
       address,
+      picture_url,
       dentinho,
-    }).populate(dentinho);
+    });
     res.redirect(`/bars/${updateBar._id}`);
   } catch (error) {
     next(error);
   }
 });
 
-router.get("/:barId", async (req, res, next) => {
+router.get("/:barId", isLoggedIn, async (req, res, next) => {
   try {
     const { barId } = req.params;
 

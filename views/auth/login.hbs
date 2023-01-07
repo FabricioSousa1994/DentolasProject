@@ -1,22 +1,33 @@
 
-<form action="/login" method="post" style="max-width: 500px; margin: auto">
+<div class="card-auth">
+  <div class="card-body-auth">
+    
+    <img class="cardImage" src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif" alt="Dentinho image">
 
-<h1 class="introTitle">Login</h1>
+    <form class="authForms" action="/login" method="post" style="max-width: 500px; margin: auto">
+
+    <h1>Login</h1>
 
 
-<div class="mb-3">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
+    <div class="form-floating mb-3 mx-auto">
+      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mx-auto">
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    
+    {{#if errorMessage}}
+    <div class="form-floating mb-3 mx-auto errorDiv">
+      <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+
+    </form>
+  </div>
 </div>
-<div class="mb-3">
-  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-  <label for="floatingPassword"></label>
-</div>
-
-<button type="submit" class="btn btn-primary">Login</button>
-
-</form>
-
-{{#if errorMessage}}
-<p>{{errorMessage}}</p>
-{{/if}}

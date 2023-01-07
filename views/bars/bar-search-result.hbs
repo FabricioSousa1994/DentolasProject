@@ -1,3 +1,19 @@
+{{#each bar}}
+    <div class="card glass" style="width: 18rem; padding-right: 0; padding-left: 0">
+      <img src="{{picture_url}}" class="card-img-top" alt="{{name}}" style="height: 15rem"/>
+      <div class="card-body glass">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">Dentinho:
+          {{#each dentinho}}
+          {{name}},
+          {{/each}}</p>
+        <a href="/bars/{{_id}}" class="btn btn-primary">See details</a>
+      </div>
+    </div>
+  {{/each}}
+
+
+
 
 <div class="container ">
     <div class="row row-cols-4">
