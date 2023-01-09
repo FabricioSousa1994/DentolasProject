@@ -23,13 +23,16 @@ router.get(
 
 router.post(
   "/dentinhos/create",
-  fileUploader.single("picture_url"),
   isLoggedIn,
   isAdmin, 
+  fileUploader.single("picture_url"),
   async (req, res, next) => {
     try {
       const { name, picture_url } = req.body;
-      const dentinho = { name, picture_url};
+      const dentinho = { name, picture_url };
+      if (req.file) {
+        dentinho.picture_url = req.file.path;
+      };
       const newDentinho = await Dentinho.create(dentinho);
       res.redirect("/dentinhos/dentinho-list");
     } catch (error) {

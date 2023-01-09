@@ -2,7 +2,7 @@
   <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1672875716/001cd71f-1440_nfjuel.jpg" class="card-img-top" alt="pubImg">
   <div class="card-body">
     <h4 class="card-title-create">Add a new bar</h4>
-    <form class="bar-create-form" action="/bars/create" method="post">
+    <form class="bar-create-form" action="/bars/create" method="post" enctype="multipart/form-data">
     
     <div class="create-labels">
     <label for="validationDefault01" class="form-label">Bar Name</label>
@@ -20,10 +20,27 @@
   </div>
 
 
-  <div class="create-labels">
+  <!--<div class="create-labels">
     <label for="validationDefault01" class="form-label">Picture</label>
     <input type="text" class="form-control" id="validationDefault01" name="picture_url" required>
   </div>
+
+
+
+  <div>
+    <label>
+        Picture
+       <input type="file" name="picture_url" required>
+    </label>
+  </div>-->
+
+
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label">Picture</label>
+    <input type="file" class="form-control" id="validationDefault01" name="picture_url" required>
+  </div>
+
+
 
 <br>
 
