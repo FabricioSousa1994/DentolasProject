@@ -1,14 +1,14 @@
-<div class="card-auth">
-  <div class="card-body-auth">
-    
-    <img class="cardImage" src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif" alt="Dentinho image">
-
-    <form class="authForms" action="/signup" method="post">
-
-    <h1>Signup</h1>
-
-
-    <div class="form-floating mb-3 mx-auto">
+<div class="card mb-3 authCard" style="max-width: 600px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif" class="img-fluid rounded-start authImg" alt="dentinhosImage">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body auth-card">
+        <h3 class="card-title loginTitle">Signup</h3>
+        <form class="auth-forms" action="/signup" method="post">
+        <div class="mb-3 labels">
+        <div class="form-floating mb-3 mx-auto">
       <input type="username" name="username" class="form-control" id="floatingPassword" placeholder="*********">
       <label for="floatingInput">Username</label>
     </div>
@@ -20,18 +20,15 @@
       <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
+    </div>
 
-    <br>
-
-    <button type="submit" class="btn btn-primary">Signup</button>
-
+      <button type="submit" class="btn btn-primary auth-btns">Signup</button>
     
-      {{#if errorMessage}}
-      <div class="form-floating mb-3 mx-auto errorDiv">
-        <p>{{errorMessage}}</p>
-      </div>
-      {{/if}}
+    {{#if errorMessage}}
+    <div class="form-floating mb-3 mx-auto errorDiv">
+      <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
 
-    </form> 
   </div>
 </div>

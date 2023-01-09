@@ -1,26 +1,24 @@
-
-<div class="card-auth">
-  <div class="card-body-auth">
-    
-    <img class="cardImage" src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif" alt="Dentinho image">
-
-    <form class="authForms" action="/login" method="post" style="max-width: 500px; margin: auto">
-
-    <h1>Login</h1>
-
-
-    <div class="form-floating mb-3 mx-auto">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+<div class="card mb-3 authCard" style="max-width: 600px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671401925/vista-de-cima-diferentes-petiscos-nozes-cips-queijo-e-salsichas-em-comida-de-petisco-de-nozes_140725-86017_logs8c.avif" class="img-fluid rounded-start authImg" alt="dentinhosImage">
     </div>
-    <div class="form-floating mx-auto">
+    <div class="col-md-8">
+      <div class="card-body auth-card">
+        <h3 class="card-title loginTitle">Login</h3>
+        <form class="auth-forms" action="/login" method="post">
+        <div class="mb-3 labels">
+       <div class="form-floating mb-3 mx-auto">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mx-auto">
       <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
+    </div>
 
-    <br>
-
-    <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary auth-btns">Login</button>
     
     {{#if errorMessage}}
     <div class="form-floating mb-3 mx-auto errorDiv">
@@ -28,6 +26,6 @@
     </div>
     {{/if}}
 
-    </form>
+    </div>
   </div>
 </div>

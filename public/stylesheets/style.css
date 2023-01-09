@@ -22,14 +22,11 @@ h1 {
 .card-body {
   color: black;
   background-color: white;
+  
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.4px);
-  -webkit-backdrop-filter: blur(5.4px);
-  border: 1px solid rgba(255, 255, 255, 0.21);
+  box-shadow: 2px 2px 5px #d9d9d9, -2px -2px 5px #ffffff;
 }
 
 /* Navbar style */
@@ -41,7 +38,8 @@ h1 {
 }
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.441);
+  /*background-color: rgba(255, 255, 255, 0.441);*/
+  background-color: white;
   
 }
 
@@ -155,35 +153,46 @@ h1 {
 
 /* Auth forms pages styles */
 
-.card-auth {
-  height: 100vh;
+.auth-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 2rem;
+  justify-content: center; 
+}
+
+
+
+.auth-btns {
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.auth-forms {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  padding-top: 1rem;
+
+}
+
+.authCard {
+  margin: 0 auto;
+  margin-top: 3rem;
   
 }
 
-.card-body-auth {
-  width: 40rem;
-  min-height: 20rem;
-  background-color: white;
-  border-radius: 2rem;
-  box-shadow: black 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.loginTitle {
+  padding-top: 1.5rem
 }
 
-.cardImage {
-  width: 20rem;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
+.authImg {
+  min-height: -webkit-fill-available;
+  object-fit:cover
+  
 }
 
-.authForms {
-  width: 100%;
+.labels {
+  padding-top: 1rem;
 }
 
 .form-floating {
@@ -216,13 +225,14 @@ h1 {
 
 /* Bars list page style */
 
-.labels {
+.searchs {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin-top: 1rem;
-  height: fit-content;
-  align-items: baseline;
-  background-color: white;
+  margin: 0 auto;
+  height: fit-content;  
   border-radius: 2rem;
   max-width: 60%;
   padding-left: 1.2rem;
@@ -244,8 +254,11 @@ h1 {
   outline: none;
 }
 
-.searchButton {
+.searchBtn {
   height: 100%;
+  background-color: blue;
+  color: white;
+  padding-left: 1rem;
 }
 
 .card-text {
@@ -332,51 +345,8 @@ h1 {
 
 /*Create dentinho cards*/
 
-.card-create {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 2rem;
-}
-
-
-.card-createBody {
-  width: 50rem;
-  min-height: 20rem;
-  background-color: white;
-  border-radius: 2rem;
-  box-shadow: black 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  
-}
-
-.createCardImage {
-  width: 20rem;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
-  
-}
-
-
-.createForms {
-  width: 100%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-
-.createContainer {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding-top: 2rem;
-  
+.addDentinhoImage {
+  object-fit: cover;
 }
 
 .create-labels {
@@ -397,4 +367,8 @@ h1 {
   text-align: center;
   padding-top: .5rem;
 }
+
+
+
+
 
