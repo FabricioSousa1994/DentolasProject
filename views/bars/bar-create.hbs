@@ -29,16 +29,13 @@
 <br>
 
 <div>
-    <h6>Choose the available dentinho:</h6>
+  <label for="validationDefault01" class="form-label">To select the dentinhos on your Bar, please hold Ctrl while choosing:</label>
+  <select class="form-select" aria-label="Default select" multiple>
   {{#each dentinho}}
-    <label>
-        {{name}}
-        <input type="checkbox" name="dentinho" value="{{_id}}">
-    </label>
-{{/each}}
+    <option value="{{name}}">{{name}}</option>  
+  {{/each}}
 </select>
 </div>
-
 
 <div class="create-btn">
     <button class="btn btn-primary" type="submit">Create Bar!</button>
