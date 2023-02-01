@@ -55,11 +55,13 @@ h1 {
   font-weight: bold;
   margin-left: .5rem;
   text-transform: uppercase;
-  background: url(https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg);
+/*   background: url(https://res.cloudinary.com/duy4rj4hd/image/upload/v1672425259/cores_m5jgtq.jpg);*/
+  background: black;
   background-size: cover;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+  font-style: italic;
 }
 
 .weather {
