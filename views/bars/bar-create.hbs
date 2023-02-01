@@ -1,56 +1,76 @@
 <div class="card mb-3">
-  <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1672875716/001cd71f-1440_nfjuel.jpg" class="card-img-top" alt="pubImg">
+  <img
+    src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1672875716/001cd71f-1440_nfjuel.jpg"
+    class="card-img-top"
+    alt="pubImg"
+  />
   <div class="card-body">
     <h4 class="card-title-create">Add a new bar</h4>
-    <form class="bar-create-form" action="/bars/create" method="post">
-    
-    <div class="create-labels">
-    <label for="validationDefault01" class="form-label">Bar Name</label>
-    <input type="text" name="name" class="form-control" id="validationDefault01" required>
+    <form
+      class="bar-create-form"
+      action="/bars/create"
+      method="post"
+      enctype="multipart/form-data"
+    >
+
+      <div class="create-labels">
+        <label for="validationDefault01" class="form-label">Bar Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="validationDefault01"
+          required
+        />
+      </div>
+
+      <div class="create-labels">
+        <label for="validationDefault01" class="form-label">Opening Hours</label>
+        <input
+          type="text"
+          name="opening_hours"
+          class="form-control"
+          id="validationDefault01"
+          required
+        />
+      </div>
+
+      <div class="create-labels">
+        <label for="validationDefault01" class="form-label">Address</label>
+        <input
+          type="text"
+          name="address"
+          class="form-control"
+          id="validationDefault01"
+          required
+        />
+      </div>
+
+      <div class="create-labels">
+        <label for="validationDefault01" class="form-label">Picture</label>
+        <input
+          type="file"
+          class="form-control"
+          id="validationDefault01"
+          name="picture_url"
+          required
+        />
+      </div>
+      <br />
+
+      <div>
+        <label for="validationDefault01" class="form-label">To select the
+          dentinhos on your Bar, please hold Ctrl while choosing:</label>
+        <select class="form-select" aria-label="Default select" multiple>
+          {{#each dentinho}}
+            <option value="{{name}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="create-btn">
+        <button class="btn btn-primary" type="submit">Create Bar!</button>
+      </div>
+    </form>
   </div>
-
-    <div class="create-labels">
-    <label for="validationDefault01" class="form-label">Opening Hours</label>
-    <input type="text" name="opening_hours" class="form-control" id="validationDefault01" required>
-  </div>
-
-    <div class="create-labels">
-    <label for="validationDefault01" class="form-label">Address</label>
-    <input type="text" name="address" class="form-control" id="validationDefault01" required>
-  </div>
-
-
-  <div class="create-labels">
-    <label for="validationDefault01" class="form-label">Picture</label>
-    <input type="text" class="form-control" id="validationDefault01" name="picture_url" required>
-  </div>
-
-<br>
-
-<div>
-    <h6>Choose the available dentinho:</h6>
-  {{#each dentinho}}
-    <label>
-        {{name}}
-        <input type="checkbox" name="dentinho" value="{{_id}}">
-    </label>
-{{/each}}
-</select>
 </div>
-
-
-<div class="create-btn">
-    <button class="btn btn-primary" type="submit">Create Bar!</button>
-</div>
-</form>
-</div>
-</div>
-
-
-
-
-
-
-
-
-      

@@ -21,7 +21,7 @@ router.get("/create", isLoggedIn, isAdmin, async (req, res, next) => {
 
 router.post(
   "/create",
-  fileUploader.single("picture_url"), isLoggedIn, isAdmin,
+  isLoggedIn, isAdmin, fileUploader.single("picture_url"), 
   async (req, res, next) => {
     try {
       const { name, opening_hours, address, dentinho, picture_url } = req.body;
@@ -32,7 +32,9 @@ router.post(
         picture_url,
         dentinho,
       };
-
+      if (req.file) {
+        bar.picture_url = req.file.path;
+      };
       const newBar = await Bar.create(bar);
       res.redirect("/bars/bar-list");
     } catch (error) {

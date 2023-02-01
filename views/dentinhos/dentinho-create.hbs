@@ -2,7 +2,7 @@
   <img src="https://res.cloudinary.com/duy4rj4hd/image/upload/v1671239587/home_foto_a9jstv.jpg" class="card-img-top addDentinhoImage" alt="pubImg">
   <div class="card-body">
     <h4 class="card-title-create">Add a new Dentinho</h4>
-    <form class="dentinho-create-form" action="/dentinhos/create" method="post">
+    <form class="dentinho-create-form" action="/dentinhos/create" method="post" enctype="multipart/form-data">
     
     <div class="create-labels">
     <label for="validationDefault01" class="form-label">Name</label>
@@ -11,7 +11,7 @@
 
   <div class="create-labels">
     <label for="validationDefault01" class="form-label">Picture</label>
-    <input type="text" class="form-control" id="validationDefault01" name="picture_url" required>
+    <input type="file" class="form-control" id="validationDefault01" name="picture_url" required>
   </div>
 
 
